@@ -6,7 +6,7 @@ setup(
     long_description='',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
-    url='https://stash.wharton.upenn.edu/projects/WRDSWEB/repos/tool-daystock/browse',
+    url='https://github.com/FlipperPA/wagtailcodeblock',
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
