@@ -16,19 +16,17 @@
             </li>
             {% if child.block.label == "Code" %}
                 <script>
-                    $('#{{ child.id_for_label }}').bind('input propertychange', function() {
-                        code_text = $('#child.id_for_label').val();
-                        alert(code_text);
-                        $('#code-{{ child.id_for_label }}').val(code_text);
+                    $(document).ready(function() {
+                        $('#{{ child.id_for_label }}').bind('input propertychange', function() {
+                            code_text = $('#{{ child.id_for_label }}').val();
+                            $('#code-{{ child.id_for_label }}').text('\n' + code_text);
+                            Prism.highlightElement($('#code-{{ child.id_for_label }}')[0]);
+                        });
                     });
                 </script>
                 <li>
                     <pre>
-                        <code class="language-python" id="code-{{ child.id_for_label }}">"
-import this
-
-print("Hello world!")
-                        </code>
+                        <code class="language-python" id="code-{{ child.id_for_label }}"></code>
                     </pre>
                 </li>
             {% endif %}
