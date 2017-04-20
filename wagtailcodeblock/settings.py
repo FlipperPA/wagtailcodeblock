@@ -6,12 +6,14 @@ def get_language_choices():
     Default list of language choices, if not overridden by Django.
     """
     DEFAULT_LANGUAGES = (
-        ('python', 'Python'),
+        ('bash', 'Bash/Shell'),
+        ('css', 'CSS'),
+        ('diff', 'diff'),
+        ('django', 'Django/Jinja Templates'),
+        ('http', 'HTML'),
         ('javascript', 'Javascript'),
         ('json', 'JSON'),
-        ('bash', 'Bash/Shell'),
-        ('html', 'HTML'),
-        ('css', 'CSS'),
+        ('python', 'Python'),
         ('scss', 'SCSS'),
         ('yaml', 'YAML'),
     )
