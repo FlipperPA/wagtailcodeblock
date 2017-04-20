@@ -20,7 +20,8 @@ By default, it will be set with these languages:
         ('yaml', 'YAML'),
     )
 
-The are set as a tuple of the PrismJS code and a descriptive label.
+The are set as a tuple of the PrismJS code and a descriptive label. [Here is a list of available language highlighters
+on the PrismJS CDN we use](https://cdnjs.com/libraries/prism).
 
 ## Example Usage
 

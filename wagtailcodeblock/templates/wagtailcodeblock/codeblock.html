@@ -38,7 +38,6 @@
                             $('#{{ child.id_for_label }}').bind('input propertychange', function() {
                                 language_class = 'language-' + $('#{{ child.id_for_label }}').val();
                                 $(target_class).removeClass().addClass(language_class);
-                                // $(target_class).addClass(language_class);
                                 Prism.highlightElement($(target_class)[0]);
                             });
                         });
