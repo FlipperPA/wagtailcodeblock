@@ -30,3 +30,7 @@ The are set as a tuple of the PrismJS code and a descriptive label.
         paragraph = RichTextBlock()
         heading = TextBlock()
         code = CodeBlock(label='Code Snippet')
+
+## Screenshot
+
+![Admin in Action](https://cloud.githubusercontent.com/assets/68164/25201886/600c5366-2521-11e7-8aba-3e1cf5955c34.png)
