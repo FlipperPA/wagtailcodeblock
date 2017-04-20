@@ -9,7 +9,6 @@ def get_language_choices():
         ('bash', 'Bash/Shell'),
         ('css', 'CSS'),
         ('diff', 'diff'),
-        ('django', 'Django/Jinja Templates'),
         ('http', 'HTML'),
         ('javascript', 'Javascript'),
         ('json', 'JSON'),
