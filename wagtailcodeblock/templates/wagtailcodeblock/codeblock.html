@@ -1,6 +1,11 @@
+{% block extra_css %}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
+{% endblock extra_css %}
+{% block extra_js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-css.min.js"></script>
+{% endblock extra_js %}
 <div class="{{ classname }}">
     {% if help_text %}
         <div class="object-help help">{{ help_text }}</div>
@@ -14,19 +19,39 @@
                 {% endif %}
                 {{ child.render_form }}
             </li>
+            {% if child.block.label == "Language" %}
+                <script>
+                    $(document).ready(function() {
+                        // Set initial language class on load
+                        target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
+                        {% if child.id_for_label|length %}
+                            $(target_class).addClass('language-' + $('#{{ child.id_for_label }}').val());
+                        {% endif %}
+
+                        // Change language being highlighted when dropdown is changed
+                        $('#{{ child.id_for_label }}').bind('input propertychange', function() {
+                            language_class = 'language-' + $('#{{ child.id_for_label }}').val();
+                            $(target_class).removeClass().addClass(language_class);
+                            // $(target_class).addClass(language_class);
+                            Prism.highlightElement($(target_class)[0]);
+                        });
+                    });
+                </script>
+            {% endif %}
             {% if child.block.label == "Code" %}
                 <script>
                     $(document).ready(function() {
                         $('#{{ child.id_for_label }}').bind('input propertychange', function() {
+                            target_class = '#target-element-{{ child.id_for_label }}';
                             code_text = $('#{{ child.id_for_label }}').val();
-                            $('#code-{{ child.id_for_label }}').text('\n' + code_text);
-                            Prism.highlightElement($('#code-{{ child.id_for_label }}')[0]);
+                            $(target_class).text('\n' + code_text);
+                            Prism.highlightElement($(target_class)[0]);
                         });
                     });
                 </script>
                 <li>
                     <pre>
-                        <code class="language-python" id="code-{{ child.id_for_label }}"></code>
+                        <code id="target-element-{{ child.id_for_label }}"></code>
                     </pre>
                 </li>
             {% endif %}
