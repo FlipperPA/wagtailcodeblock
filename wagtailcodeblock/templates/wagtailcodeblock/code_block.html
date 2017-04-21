@@ -9,13 +9,20 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/prism.min.js"></script>    
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/components/prism-{{ val }}.min.js"></script>
                 {% endblock extra_js %}
-                <input id="code_block_language" type="hidden" value="language-{{ val }}">
+                <script>
+                    language_class_name = 'language-{{ val }}';
+                </script>
             {% endif %}
             {% if key == "code" %}
                 <pre>
-                    <code id="target-element">{{ val }}</code>
+                    <code id="target-element-current">{{ val }}</code>
                 </pre>
-                <script>document.getElementById('target-element').className = document.getElementById('code_block_language').value;</script>
+                <script>
+                    var block_num = (typeof block_num === 'undefined') ? 0 : block_num;
+                    block_num++;
+                    document.getElementById('target-element-current').className = language_class_name;
+                    document.getElementById('target-element-current').id = 'target-element-' + block_num;
+                </script>
             {% endif %}
         {% endfor %}
     {% endwith %}
