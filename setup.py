@@ -3,7 +3,7 @@ setup(
     name='wagtailcodeblock',
     version="0.1",
     description='Wagtail Code Block provides PrismJS syntax highlighting in Wagtail.',
-    long_description='',
+    long_description='A work-in-progress alpha of a Wagtail Streamfield block for source code with real-time syntax highlighting.',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
     url='https://github.com/FlipperPA/wagtailcodeblock',
@@ -14,7 +14,7 @@ setup(
         'wagtail>=1.8',
     ],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',

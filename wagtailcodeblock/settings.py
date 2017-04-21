@@ -13,7 +13,6 @@ def get_language_choices():
         ('javascript', 'Javascript'),
         ('json', 'JSON'),
         ('python', 'Python'),
-        ('sas', 'SAS'),
         ('scss', 'SCSS'),
         ('yaml', 'YAML'),
     )

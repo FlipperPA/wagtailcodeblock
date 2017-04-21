@@ -1,8 +1,8 @@
-# wagtailcodeblock
+# Wagtail Code Block
 
 A just started work-in-progress of a Streamfield block for source code with real-time syntax highlighting.
 
-It uses the excellent [PrismJS](http://prismjs.com/) library both in the CMS and the website.
+It uses the excellent [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the website.
 
 ## Django Settings
 
@@ -10,17 +10,18 @@ You can customize the languages available by configuring `WAGTAIL_CODE_BLOCK_LAN
 By default, it will be set with these languages:
 
     WAGTAIL_CODE_BLOCK_LANGUAGES = (
-        ('python', 'Python'),
+        ('bash', 'Bash/Shell'),
+        ('css', 'CSS'),
+        ('diff', 'diff'),
+        ('http', 'HTML'),
         ('javascript', 'Javascript'),
         ('json', 'JSON'),
-        ('bash', 'Bash/Shell'),
-        ('html', 'HTML'),
-        ('css', 'CSS'),
+        ('python', 'Python'),
         ('scss', 'SCSS'),
         ('yaml', 'YAML'),
     )
 
-The are set as a tuple of the PrismJS code and a descriptive label. [Here is a list of available language highlighters
+This setting is comprised of the PrismJS code and a descriptive label. [Here is a list of available language highlighters
 on the PrismJS CDN we use](https://cdnjs.com/libraries/prism).
 
 ## Example Usage
