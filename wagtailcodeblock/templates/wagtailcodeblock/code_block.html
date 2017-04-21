@@ -1,0 +1,22 @@
+{% spaceless %}
+    {% with prism_version="1.6.0" %}
+        {% for key, val in self.items %}
+            {% if key == "language" %}
+                {% block extra_css %}
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/themes/prism.min.css" rel="stylesheet" />
+                {% endblock extra_css %}
+                {% block extra_js %}
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/prism.min.js"></script>    
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/components/prism-{{ val }}.min.js"></script>
+                {% endblock extra_js %}
+                <input id="code_block_language" type="hidden" value="language-{{ val }}">
+            {% endif %}
+            {% if key == "code" %}
+                <pre>
+                    <code id="target-element">{{ val }}</code>
+                </pre>
+                <script>document.getElementById('target-element').className = document.getElementById('code_block_language').value;</script>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+{% endspaceless %}

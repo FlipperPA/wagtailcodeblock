@@ -1,3 +1,15 @@
+<script>
+function prism_repaint(target_class) {
+    Prism.highlightElement($(target_class)[0]);
+}
+
+function populate_target_code(label) {
+    target_class = '#target-element-' + label;
+    code_text = $('#' + label).val();
+    $(target_class).text(code_text);
+    prism_repaint(target_class);
+}
+</script>
 {% with prism_version="1.6.0" %}
     {% block extra_css %}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/themes/prism.min.css" rel="stylesheet" />
@@ -38,7 +50,7 @@
                             $('#{{ child.id_for_label }}').bind('input propertychange', function() {
                                 language_class = 'language-' + $('#{{ child.id_for_label }}').val();
                                 $(target_class).removeClass().addClass(language_class);
-                                Prism.highlightElement($(target_class)[0]);
+                                prism_repaint(target_class);
                             });
                         });
                     </script>
@@ -46,22 +58,17 @@
                 {% if child.block.label == "Code" %}
                     <script>
                         $(document).ready(function() {
+                            populate_target_code('{{ child.id_for_label }}');
+
                             $('#{{ child.id_for_label }}').bind('input propertychange', function() {
-                                target_class = '#target-element-{{ child.id_for_label }}';
-                                code_text = $('#{{ child.id_for_label }}').val();
-                                $(target_class).text('\n' + code_text);
-                                Prism.highlightElement($(target_class)[0]);
+                                populate_target_code('{{ child.id_for_label }}');
                             });
                         });
                     </script>
                     <li>
-                        <pre>
-                            <code id="target-element-{{ child.id_for_label }}"></code>
-                        </pre>
+                        <pre><code id="target-element-{{ child.id_for_label }}"></code></pre>
                     </li>
                 {% endif %}
-
-
             {% endfor %}
         </ul>
     </div>
