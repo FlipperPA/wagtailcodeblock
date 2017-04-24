@@ -10,66 +10,56 @@ function populate_target_code(label) {
     prism_repaint(target_class);
 }
 </script>
-{% with prism_version="1.6.0" %}
-    {% block extra_css %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/themes/prism.min.css" rel="stylesheet" />
-    {% endblock extra_css %}
-    {% block extra_js %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/prism.min.js"></script>
-    {% endblock extra_js %}
-    <div class="{{ classname }}">
-        {% if help_text %}
-            <div class="object-help help">{{ help_text }}</div>
-        {% endif %}
+<div class="{{ classname }}">
+<style>
+.code-block textarea {
+    font-family: FreeMono, monospace;
+}
+</style>
+    {% if help_text %}
+        <div class="object-help help">{{ help_text }}</div>
+    {% endif %}
 
-        <ul class="fields">
-            {% for child in children.values %}
-                <li{% if child.block.required %} class="required"{% endif %}>
-                    {% if child.block.label %}
-                        <label{% if child.id_for_label %} for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}:</label>
-                    {% endif %}
-                    {{ child.render_form }}
-                </li>
-                {% if child.block.label == "Language" %}
-                    {# As we loop through, load each language dialect #}
-                    {% for language_choice, language_name in child.block.field.choices %}
-                        {% if language_choice|length %}
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/components/prism-{{ language_choice }}.min.js"></script>
+    <ul class="fields">
+        {% for child in children.values %}
+            <li{% if child.block.required %} class="required"{% endif %}>
+                {% if child.block.label %}
+                    <label{% if child.id_for_label %} for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}:</label>
+                {% endif %}
+                {{ child.render_form }}
+            </li>
+            {% if child.block.label == "Language" %}
+                <script>
+                    $(document).ready(function() {
+                        // Set initial language class on load
+                        target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
+                        {% if child.id_for_label|length %}
+                            $(target_class).addClass('language-' + $('#{{ child.id_for_label }}').val());
                         {% endif %}
-                    {% endfor %}
 
-                    <script>
-                        $(document).ready(function() {
-                            // Set initial language class on load
-                            target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
-                            {% if child.id_for_label|length %}
-                                $(target_class).addClass('language-' + $('#{{ child.id_for_label }}').val());
-                            {% endif %}
-
-                            // Change language being highlighted when dropdown is changed
-                            $('#{{ child.id_for_label }}').bind('input propertychange', function() {
-                                language_class = 'language-' + $('#{{ child.id_for_label }}').val();
-                                $(target_class).removeClass().addClass(language_class);
-                                prism_repaint(target_class);
-                            });
+                        // Change language being highlighted when dropdown is changed
+                        $('#{{ child.id_for_label }}').bind('input propertychange', function() {
+                            language_class = 'language-' + $('#{{ child.id_for_label }}').val();
+                            $(target_class).removeClass().addClass(language_class);
+                            prism_repaint(target_class);
                         });
-                    </script>
-                {% endif %}
-                {% if child.block.label == "Code" %}
-                    <script>
-                        $(document).ready(function() {
+                    });
+                </script>
+            {% endif %}
+            {% if child.block.label == "Code" %}
+                <script>
+                    $(document).ready(function() {
+                        populate_target_code('{{ child.id_for_label }}');
+
+                        $('#{{ child.id_for_label }}').bind('input propertychange', function() {
                             populate_target_code('{{ child.id_for_label }}');
-
-                            $('#{{ child.id_for_label }}').bind('input propertychange', function() {
-                                populate_target_code('{{ child.id_for_label }}');
-                            });
                         });
-                    </script>
-                    <li>
-                        <pre><code id="target-element-{{ child.id_for_label }}"></code></pre>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
-{% endwith %}
+                    });
+                </script>
+                <li>
+                    <pre><code id="target-element-{{ child.id_for_label }}"></code></pre>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
