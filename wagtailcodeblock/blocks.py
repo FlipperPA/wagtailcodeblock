@@ -44,6 +44,6 @@ class CodeBlock(StructBlock):
 
     class Meta:
         icon = 'code'
-        form_classname = 'code-block struct-block'
         template = 'wagtailcodeblock/code_block.html'
+        form_classname = 'code-block struct-block'
         form_template = 'wagtailcodeblock/code_block_form.html'

@@ -13,6 +13,10 @@
                     } catch(err) {
                         document.write('<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/themes/prism.min.css" rel="stylesheet" />');
                         $.getScript('https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/prism.min.js');
+
+                        document.write('<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />');
+                        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/plugins/line-numbers/prism-line-numbers.min.js');
+
                         prism_loaded = true;
                     }
                     $.getScript('https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/components/prism-{{ val }}.min.js');
@@ -20,7 +24,7 @@
                 </script>
             {% endif %}
             {% if key == "code" %}
-                <pre>
+                <pre class="line-numbers">
                     <code id="target-element-current">{{ val }}</code>
                 </pre>
                 <script>

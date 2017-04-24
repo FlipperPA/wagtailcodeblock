@@ -2,7 +2,7 @@
 
 A just started work-in-progress of a Streamfield block for source code with real-time syntax highlighting.
 
-It uses the excellent [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the website.
+It uses the excellent [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the website and requires jQuery.
 
 ## Django Settings
 
