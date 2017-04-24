@@ -30,7 +30,6 @@ class CodeBlock(StructBlock):
                     lang_code,
                 )
             )
-        print(js_list)
         return Media(
             js=js_list,
             css={
