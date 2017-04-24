@@ -21,12 +21,6 @@ class CodeBlock(StructBlock):
             "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/prism.min.js".format(
                 prism_version,
             ),
-            "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js".format(
-                prism_version,
-            ),
-            "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/plugins/line-numbers/prism-line-numbers.js".format(
-                prism_version,
-            ),
         ]
 
         for lang_code, lang_name in self.WCB_LANGUAGES:
@@ -42,12 +36,6 @@ class CodeBlock(StructBlock):
             css={
                 'all': [
                     "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/themes/prism.min.css".format(
-                        prism_version,
-                    ),
-                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/plugins/line-numbers/prism-line-numbers.min.css".format(
-                        prism_version,
-                    ),
-                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/plugins/line-numbers/prism-line-numbers.min.css.map".format(
                         prism_version,
                     ),
                 ]
