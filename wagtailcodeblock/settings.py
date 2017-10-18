@@ -18,3 +18,11 @@ def get_language_choices():
     )
 
     return getattr(settings, "WAGTAIL_CODE_BLOCK_LANGUAGES", DEFAULT_LANGUAGES)
+
+
+def get_theme():
+    """
+    Default list of language choices, if not overridden by Django.
+    """
+
+    return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", None)
