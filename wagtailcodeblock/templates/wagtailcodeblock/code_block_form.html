@@ -1,20 +1,20 @@
 <script>
-function prism_repaint(target_class) {
-    Prism.highlightElement($(target_class)[0]);
-}
+    function prism_repaint(target_class) {
+        Prism.highlightElement($(target_class)[0]);
+    }
 
-function populate_target_code(label) {
-    target_class = '#target-element-' + label;
-    code_text = $('#' + label).val();
-    $(target_class).text(code_text);
-    prism_repaint(target_class);
-}
+    function populate_target_code(label) {
+        target_class = '#target-element-' + label;
+        code_text = $('#' + label).val();
+        $(target_class).text(code_text);
+        prism_repaint(target_class);
+    }
 </script>
 <div class="{{ classname }}">
     <style>
-    .code-block textarea {
-        font-family: FreeMono, monospace;
-    }
+        .code-block textarea {
+            font-family: FreeMono, monospace;
+        }
     </style>
     {% if help_text %}
         <div class="object-help help">{{ help_text }}</div>
@@ -24,13 +24,14 @@ function populate_target_code(label) {
         {% for child in children.values %}
             <li{% if child.block.required %} class="required"{% endif %}>
                 {% if child.block.label %}
-                    <label{% if child.id_for_label %} for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}:</label>
+                    <label{% if child.id_for_label %}
+                        for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}:</label>
                 {% endif %}
                 {{ child.render_form }}
             </li>
             {% if child.block.label == "Language" %}
                 <script>
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         // Set initial language class on load
                         target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
                         {% if child.id_for_label|length %}
@@ -38,7 +39,7 @@ function populate_target_code(label) {
                         {% endif %}
 
                         // Change language being highlighted when dropdown is changed
-                        $('#{{ child.id_for_label }}').bind('input propertychange', function() {
+                        $('#{{ child.id_for_label }}').bind('input propertychange', function () {
                             language_class = 'language-' + $('#{{ child.id_for_label }}').val();
                             $(target_class).removeClass().addClass(language_class);
                             prism_repaint(target_class);
@@ -48,10 +49,10 @@ function populate_target_code(label) {
             {% endif %}
             {% if child.block.label == "Code" %}
                 <script>
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         populate_target_code('{{ child.id_for_label }}');
 
-                        $('#{{ child.id_for_label }}').bind('input propertychange', function() {
+                        $('#{{ child.id_for_label }}').bind('input propertychange', function () {
                             populate_target_code('{{ child.id_for_label }}');
                         });
                     });

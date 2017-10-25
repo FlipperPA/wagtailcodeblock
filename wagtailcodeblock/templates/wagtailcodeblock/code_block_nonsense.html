@@ -1,0 +1,87 @@
+{% spaceless %}
+    <script>
+        if(typeof window.loadScript === 'undefined') {
+            loadedScripts = [];
+
+            function loadScript(url, callback) {
+                var alreadyLoaded = $.inArray(url, loadedScripts);
+
+                if(1) {
+                    var script = document.createElement("script")
+                    script.type = "text/javascript";
+
+                    if (script.readyState) {  // IE
+                        script.onreadystatechange = function(){
+                            if (script.readyState == "loaded" ||
+                                    script.readyState == "complete"){
+                                script.onreadystatechange = null;
+                                callback();
+                            }
+                        };
+                    } else {  // Sane people
+                        script.onload = function(){
+                            callback();
+                        };
+                    }
+
+                    script.src = url;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                    alert("Loading " + url);
+                    loadedScripts.push(url);
+                }
+            }
+        }
+    </script>
+    {% with prism_version="1.8.3" %}
+        {% for key, val in self.items %}
+            {% if key == "language" %}
+                {% comment %}
+                We are going to load Prism's JS, CSS, and the language dialects we need.
+                We only load Prism's core CSS and JS on the first loop through in case there
+                are multiple code blocks in multiple languages on the page.
+                {% endcomment %}
+                <script>
+                    language_class_name = 'language-{{ val }}';
+                    document.write('<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/themes/prism.min.css" rel="stylesheet" />');
+                    loadScript("https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/prism.min.js", function() {
+                        loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/components/prism-{{ val }}.min.js', function() {
+                            var html = Prism.highlight(code, Prism.languages.{{ val }});
+                            var block_num = (typeof block_num === 'undefined') ? 0 : block_num;
+                            block_num++;
+                            document.getElementById('target-element-current').className = language_class_name;
+                            document.getElementById('target-element-current').id = 'target-element-' + block_num;
+                        });
+                    });
+                </script>
+                {% comment %}
+                    try {
+                        prism_loaded;
+                    } catch(err) {
+                        document.write('<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/themes/prism.min.css" rel="stylesheet" />');
+                        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/prism.min.js');
+
+                        document.write('<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />');
+                        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/plugins/line-numbers/prism-line-numbers.min.js');
+
+                        prism_loaded = true;
+                    }
+                    language_class_name = 'language-{{ val }}';
+                </script>
+                <script defer src='https://cdnjs.cloudflare.com/ajax/libs/prism/{{ prism_version }}/components/prism-{{ val }}.min.js'></script>
+                {% endcomment %}
+            {% endif %}
+            {% if key == "code" %}
+                <pre class="line-numbers">
+                    <code id="target-element-current">{{ val }}</code>
+                </pre>
+                <script>
+                    var block_num = (typeof block_num === 'undefined') ? 0 : block_num;
+                    block_num++;
+                    document.getElementById('target-element-current').className = language_class_name;
+                    document.getElementById('target-element-current').id = 'target-element-' + block_num;
+                    Prism.highlightElement($('target-element-' + block_num)[0]);
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+{% endspaceless %}
