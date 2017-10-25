@@ -31,7 +31,7 @@ class CodeBlock(StructBlock):
 
         prism_version = get_prism_version()
         if theme:
-            prism_theme = "-" + theme
+            prism_theme = '-{}'.format(theme)
         else:
             prism_theme = ""
 
