@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.forms import Media
 from django.utils.translation import ugettext_lazy as _
 
@@ -6,7 +5,6 @@ from wagtail.wagtailcore.blocks import (
     StructBlock,
     TextBlock,
     ChoiceBlock,
-    RichTextBlock
 )
 
 from .settings import (
