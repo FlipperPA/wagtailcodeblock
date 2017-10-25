@@ -173,5 +173,5 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 # Contributors
 
-Timothy Allen (https://github.com/FlipperPA)
-José Luis (https://github.com/SalahAdDin)
+* Timothy Allen (https://github.com/FlipperPA)
+* José Luis (https://github.com/SalahAdDin)
