@@ -22,7 +22,13 @@ def get_language_choices():
 
 def get_theme():
     """
-    Default list of language choices, if not overridden by Django.
+    Default theme is none, if not overridden by Django.
     """
 
     return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", None)
+
+
+def get_prism_version():
+    prism_version = "1.8.3"
+
+    return prism_version

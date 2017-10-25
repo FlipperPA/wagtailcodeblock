@@ -6,11 +6,13 @@ from wagtail.wagtailcore.blocks import (
     StructBlock,
     TextBlock,
     ChoiceBlock,
+    RichTextBlock
 )
 
 from .settings import (
     get_language_choices,
-    get_theme
+    get_theme,
+    get_prism_version
 )
 
 
@@ -29,7 +31,7 @@ class CodeBlock(StructBlock):
 
         theme = get_theme()
 
-        prism_version = "1.8.3"
+        prism_version = get_prism_version()
         if theme:
             prism_theme = "-" + theme
         else:
