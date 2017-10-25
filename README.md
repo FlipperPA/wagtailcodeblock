@@ -15,7 +15,7 @@ class ContentStreamBlock(StreamBlock):
     code = CodeBlock(label='Code')
 ```
 
-## Screenshot
+## Screenshot of the CMS Editor Interface
 
 ![Admin in Action](img/screenshot-editor.png)
 
