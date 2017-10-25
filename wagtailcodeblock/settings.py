@@ -25,7 +25,7 @@ def get_theme():
     Default theme is none, if not overridden by Django.
     """
 
-    return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", None)
+    return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", 'coy')
 
 
 def get_prism_version():
