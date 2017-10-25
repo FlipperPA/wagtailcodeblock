@@ -21,8 +21,23 @@ class ContentStreamBlock(StreamBlock):
 
 ## Django Settings
 
+### Themes
+
+Wagtail Code Block uses the PrismJS default theme, with a light gray background. You can choose a different theme by configuring `WAGTAIL_CODE_BLOCK_THEME` in your Django settings. PrismJS provides several themes:
+
+* **coy**: <a href="http://prismjs.com/index.html?theme=prism-coy" target="_blank">Coy</a>
+* **dark**: <a href="http://prismjs.com/index.html?theme=prism-dark" target="_blank">Dark</a>
+* **funky**: <a href="http://prismjs.com/index.html?theme=prism-funky" target="_blank">Funky</a>
+* **okaidia**: <a href="http://prismjs.com/index.html?theme=prism-okaidia" target="_blank">Okaidia</a>
+* **twilight**: <a href="http://prismjs.com/index.html?theme=prism-twilight" target="_blank">Twilight</a>
+* **solarizedlight**: <a href="http://prismjs.com/index.html?theme=prism-solarizedlight" target="_blank">Solarized Light</a>
+
+For example, in you want to use the Solarized Light theme: `WAGTAIL_CODE_BLOCK_THEME = 'solarizedlight'`
+
+### Languages Available
+
 You can customize the languages available by configuring `WAGTAIL_CODE_BLOCK_LANGUAGES` in your Django settings.
-By default, it will be set with these languages:
+By default, it will be set with these languages, since most users are in the Python web development community:
 
 ```python
 WAGTAIL_CODE_BLOCK_LANGUAGES = (
