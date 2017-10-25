@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name='wagtailcodeblock',
-    version="0.2.4",
+    version="0.3.0",
     description='Wagtail Code Block provides PrismJS syntax highlighting in Wagtail.',
     long_description='A work-in-progress alpha of a Wagtail Streamfield block for source code with real-time syntax highlighting.',
     author='Tim Allen',
