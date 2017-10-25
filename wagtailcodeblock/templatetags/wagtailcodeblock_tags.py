@@ -41,7 +41,6 @@ def load_prism_laguanges(field):
     values = []
     for block in field:
         if block.block_type == 'code_quote':
-            print(block.value['code']['language'])
             values.append(block.value['code']['language'])
 
     for value in values:
