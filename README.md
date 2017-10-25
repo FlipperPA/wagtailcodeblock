@@ -17,7 +17,7 @@ class ContentStreamBlock(StreamBlock):
 
 ## Screenshot
 
-![Admin in Action](https://cloud.githubusercontent.com/assets/68164/25201886/600c5366-2521-11e7-8aba-3e1cf5955c34.png)
+![Admin in Action](img/screenshot-editor.png)
 
 ## Django Settings
 
