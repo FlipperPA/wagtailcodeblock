@@ -208,3 +208,4 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 * Timothy Allen (https://github.com/FlipperPA)
 * José Luis (https://github.com/SalahAdDin)
+* Nick Sarbicki (https://github.com/NDevox)
