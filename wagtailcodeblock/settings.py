@@ -22,7 +22,7 @@ def get_language_choices():
 
 def get_theme():
     """
-    Default theme is none, if not overridden by Django.
+    Returns a default theme, if not in the proejct's settings. Default theme is 'coy'.
     """
 
     return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", 'coy')
