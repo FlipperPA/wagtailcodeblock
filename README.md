@@ -19,6 +19,22 @@ class ContentStreamBlock(StreamBlock):
 
 ![Admin in Action](img/screenshot-editor.png)
 
+## Installation & Setup
+
+To install Wagtail Code Block simply run:
+
+`pip install wagtailcodeblock`
+
+And add `wagtailcodeblock` to your `INSTALLED_APPS` setting:
+
+```python
+INSTALLED_APPS = [
+    ...
+    'wagtailcodeblock',
+    ...
+]
+``` 
+
 ## Django Settings
 
 ### Themes
@@ -192,3 +208,4 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 * Timothy Allen (https://github.com/FlipperPA)
 * José Luis (https://github.com/SalahAdDin)
+* Nick Sarbicki (https://github.com/NDevox)
