@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 setup(
     name='wagtailcodeblock',
-    version="0.3.1",
+    version="0.4.0",
     description='Wagtail Code Block provides PrismJS syntax highlighting in Wagtail.',
-    long_description='A work-in-progress alpha of a Wagtail Streamfield block for source code with real-time syntax highlighting.',
+    long_description='A Wagtail Streamfield block for source code with real-time syntax highlighting.',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
     url='https://github.com/FlipperPA/wagtailcodeblock',
@@ -14,7 +14,7 @@ setup(
         'wagtail>=1.8',
     ],
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 3 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
@@ -22,6 +22,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Framework :: Django',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',

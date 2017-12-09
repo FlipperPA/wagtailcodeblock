@@ -1,11 +1,19 @@
 from django.forms import Media
 from django.utils.translation import ugettext_lazy as _
 
-from wagtail.wagtailcore.blocks import (
-    StructBlock,
-    TextBlock,
-    ChoiceBlock,
-)
+# Wagtail 2.0 compatibility - new package paths
+try:
+    from wagtail.core.blocks import (
+        StructBlock,
+        TextBlock,
+        ChoiceBlock,
+    )
+except ImportError:
+    from wagtail.wagtailcore.blocks import (
+        StructBlock,
+        TextBlock,
+        ChoiceBlock,
+    )
 
 from .settings import (
     get_language_choices,
