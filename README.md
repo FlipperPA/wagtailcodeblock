@@ -204,6 +204,20 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 )
 ```
 
+# Change Log
+
+## 0.4
+
+* Support for Wagtail 2.0
+
+## 0.3
+
+* Support for PrismJS themes
+
+### 0.3.1
+
+* Bug fixes for some front-end issues. Update documentation.
+
 # Contributors
 
 * Timothy Allen (https://github.com/FlipperPA)
