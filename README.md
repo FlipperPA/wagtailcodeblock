@@ -210,6 +210,10 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 * Support for Wagtail 2.0
 
+### 0.4.1
+
+* Upgrade to PrismJS 1.9.0, which includes a patch we made to the 'coy' theme we use as a default.
+
 ## 0.3
 
 * Support for PrismJS themes
