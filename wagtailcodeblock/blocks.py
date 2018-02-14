@@ -28,6 +28,8 @@ class CodeBlock(StructBlock):
     """
 
     WCB_LANGUAGES = get_language_choices()
+    off_languages = ['html', 'mathml', 'svg', 'xml']
+
 
     language = ChoiceBlock(choices=WCB_LANGUAGES, help_text=_('Coding language'), label=_('Language'))
     code = TextBlock(label=_('Code'))
@@ -50,12 +52,14 @@ class CodeBlock(StructBlock):
         ]
 
         for lang_code, lang_name in self.WCB_LANGUAGES:
-            js_list.append(
-                "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/components/prism-{}.min.js".format(
-                    prism_version,
-                    lang_code,
+            # Review: https://github.com/PrismJS/prism/blob/gh-pages/prism.js#L602
+            if lang_code not in self.off_languages:
+                js_list.append(
+                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/components/prism-{}.min.js".format(
+                        prism_version,
+                        lang_code,
+                    )
                 )
-            )
         return Media(
             js=js_list,
             css={
