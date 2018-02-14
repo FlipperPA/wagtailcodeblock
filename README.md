@@ -206,6 +206,12 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 # Change Log
 
+## 1.11.0.0
+
+* Upgrade to PrismJS 1.11.0
+    * Changed version numbers to match the included PrismJS release
+* Patch to add support for natively included PrismJS languages ['html', 'mathml', 'svg', 'xml']
+
 ## 0.4
 
 * Support for Wagtail 2.0
