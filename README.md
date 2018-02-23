@@ -39,7 +39,7 @@ INSTALLED_APPS = [
 
 ### Themes
 
-Wagtail Code Block uses the PrismJS "Coy" theme, which looks good with Wagtail's CMS editor design. You can choose a different theme by configuring `WAGTAIL_CODE_BLOCK_THEME` in your Django settings. PrismJS provides several themes:
+Wagtail Code Block defaults to the PrismJS "Coy" theme, which looks good with Wagtail's CMS editor design. You can choose a different theme by configuring `WAGTAIL_CODE_BLOCK_THEME` in your Django settings. PrismJS provides several themes:
 
 * **None**: <a href="http://prismjs.com/index.html?theme=prism" target="_blank">Default</a>
 * **'coy'**: <a href="http://prismjs.com/index.html?theme=prism-coy" target="_blank">Coy</a>
