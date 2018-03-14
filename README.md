@@ -228,8 +228,12 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 * Bug fixes for some front-end issues. Update documentation.
 
-# Contributors
+# Project Maintainers
 
 * Timothy Allen (https://github.com/FlipperPA)
+* Milton Lenis (https://github.com/MiltonLn)
+
+# Contributors
+
 * José Luis (https://github.com/SalahAdDin)
 * Nick Sarbicki (https://github.com/NDevox)
