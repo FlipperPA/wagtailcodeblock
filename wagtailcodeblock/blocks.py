@@ -24,12 +24,11 @@ from .settings import (
 
 class CodeBlock(StructBlock):
     """
-    Code Highlighting Block
+    A Wagtail StreamField block for code syntax highlighting using PrismJS.
     """
 
     WCB_LANGUAGES = get_language_choices()
     off_languages = ['html', 'mathml', 'svg', 'xml']
-
 
     language = ChoiceBlock(choices=WCB_LANGUAGES, help_text=_('Coding language'), label=_('Language'))
     code = TextBlock(label=_('Code'))
