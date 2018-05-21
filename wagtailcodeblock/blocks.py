@@ -40,13 +40,13 @@ class CodeBlock(StructBlock):
 
         prism_version = get_prism_version()
         if theme:
-            prism_theme = '-{}'.format(theme)
+            prism_theme = '-{theme}'.format(theme=theme)
         else:
             prism_theme = ""
 
         js_list = [
-            "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/prism.min.js".format(
-                prism_version,
+            "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
+                prism_version=prism_version,
             ),
         ]
 
@@ -54,17 +54,18 @@ class CodeBlock(StructBlock):
             # Review: https://github.com/PrismJS/prism/blob/gh-pages/prism.js#L602
             if lang_code not in self.off_languages:
                 js_list.append(
-                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/components/prism-{}.min.js".format(
-                        prism_version,
-                        lang_code,
+                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
+                        prism_version=prism_version,
+                        lang_code=lang_code,
                     )
                 )
         return Media(
             js=js_list,
             css={
                 'all': [
-                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{}/themes/prism{}.min.css".format(
-                        prism_version, prism_theme
+                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
+                        prism_version=prism_version,
+                        prism_theme=prism_theme,
                     ),
                 ]
             }
