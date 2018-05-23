@@ -68,7 +68,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('bash', 'Bash/Shell'),
     ('css', 'CSS'),
     ('diff', 'diff'),
-    ('http', 'HTML'),
+    ('html', 'HTML'),
     ('javascript', 'Javascript'),
     ('json', 'JSON'),
     ('python', 'Python'),
@@ -239,6 +239,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 * Upgrade to PrismJS 1.14.0
 * Allow passing a language code as an attribute, only allowing the single language to be used.
+* Fix conflict in CSS between `tag` class for Wagtail and markup syntax types.
 
 ## 1.11.0.0
 
