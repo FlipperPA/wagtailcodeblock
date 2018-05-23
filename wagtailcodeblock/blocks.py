@@ -52,15 +52,15 @@ class CodeBlock(StructBlock):
     @property
     def media(self):
         # Languages included in PrismJS core
-        included_languages = (
+        # Review: https://github.com/PrismJS/prism/blob/gh-pages/prism.js#L602
+        INCLUDED_LANGUAGES = (
             ('html', 'HTML'),
             ('mathml', 'MathML'),
             ('svg', 'SVG'),
             ('xml', 'XML'),
         )
 
-        # Languages from WagtailCodeBlock settings
-        WCB_LANGUAGES = get_language_choices()
+        # Theme and version from Wagtail Code Block settings
         THEME = get_theme()
         PRISM_VERSION = get_prism_version()
         if THEME:
@@ -74,9 +74,9 @@ class CodeBlock(StructBlock):
             ),
         ]
 
-        for lang_code, lang_name in WCB_LANGUAGES:
-            # Review: https://github.com/PrismJS/prism/blob/gh-pages/prism.js#L602
-            if lang_code not in [included_language[0] for included_language in included_languages]:
+        # Get the languages for the site from Django's settings, or the default in get_language_choices()
+        for lang_code, lang_name in get_language_choices():
+            if lang_code not in [included_language[0] for included_language in INCLUDED_LANGUAGES]:
                 js_list.append(
                     "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
                         prism_version=PRISM_VERSION,
