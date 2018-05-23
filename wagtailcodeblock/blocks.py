@@ -64,14 +64,13 @@ class CodeBlock(StructBlock):
         # If a language is passed in as part of a code block, use it.
         language = kwargs.get('language', False)
 
-        print('LANGUAGE', language)
-        print('WCBL', WCB_LANGUAGES)
         total_language_choices = WCB_LANGUAGES + self.INCLUDED_LANGUAGES
 
         if language in [lang[0] for lang in total_language_choices]:
             for language_choice in total_language_choices:
+                print(language_choice)
                 if language_choice[0] == language:
-                    language_choices = language_choice
+                    language_choices = (language_choice,)
                     language_default = language_choice[0]
         else:
             language_choices = WCB_LANGUAGES
