@@ -1,0 +1,7 @@
+{% spaceless %}
+    {% for key, val in self.items %}
+        {% if key == "code" %}
+            {{ val|safe }}
+        {% endif %}
+    {% endfor %}
+{% endspaceless %}
