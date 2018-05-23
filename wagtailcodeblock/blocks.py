@@ -1,5 +1,3 @@
-from collections import OrderedDict
-
 from django.forms import Media
 from django.utils.translation import ugettext_lazy as _
 
@@ -110,7 +108,7 @@ class CodeBlock(StructBlock):
                         prism_version=PRISM_VERSION,
                         prism_theme=prism_theme,
                     ),
-                    "wagtailcodeblock/css/wagtail-code-block.css",
+                    "wagtailcodeblock/css/wagtail-code-block.min.css",
                 ]
             }
         )
