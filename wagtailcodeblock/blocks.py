@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 from django.forms import Media
 from django.utils.translation import ugettext_lazy as _
 
@@ -27,39 +29,53 @@ class CodeBlock(StructBlock):
     A Wagtail StreamField block for code syntax highlighting using PrismJS.
     """
 
-    def __init__(self, **kwargs):
-        self.language = ChoiceBlock(
-            choices=self.get_language_choice_list(**kwargs),
-            help_text=_('Coding language'),
-            label=_('Language'),
-        )
-        self.code = TextBlock(label=_('Code'))
-
-        super().__init__(**kwargs)
-
-    def get_language_choice_list(self, **kwargs):
-        print('Here')
-        # If a language is passed in as part of a code block, use it.
-        language = kwargs.get('language', False)
-
-        if language in self.WCB_LANGUAGES + self.included_languages:
-            language_choices = (('html', 'HTML',),)
-        else:
-            language_choices = self.WCB_LANGUAGES
-
-        return language_choices
-
-    @property
-    def media(self):
+    def __init__(self, local_blocks=None, **kwargs):
         # Languages included in PrismJS core
         # Review: https://github.com/PrismJS/prism/blob/gh-pages/prism.js#L602
-        INCLUDED_LANGUAGES = (
+        self.INCLUDED_LANGUAGES = (
             ('html', 'HTML'),
             ('mathml', 'MathML'),
             ('svg', 'SVG'),
             ('xml', 'XML'),
         )
 
+        if local_blocks is None:
+            local_blocks = []
+        else:
+            local_blocks = local_blocks.copy()
+
+        local_blocks.extend([
+            ('language', ChoiceBlock(
+                choices=self.get_language_choice_list(**kwargs),
+                help_text=_('Coding language'),
+                label=_('Language'),
+                empty_label=None,
+            )),
+            ('code', TextBlock(label=_('Code'))),
+        ])
+
+        super().__init__(local_blocks, **kwargs)
+
+    def get_language_choice_list(self, **kwargs):
+        print('Here')
+        # Get default languages
+        WCB_LANGUAGES = get_language_choices()
+        # If a language is passed in as part of a code block, use it.
+        language = kwargs.get('language', False)
+
+        print('LANGUAGE', language)
+        print('WCBL', WCB_LANGUAGES)
+
+        if language in [lang[0] for lang in WCB_LANGUAGES]:  # + self.included_languages:
+            print('YO')
+            language_choices = (('html', 'HTML',),)
+        else:
+            language_choices = WCB_LANGUAGES
+
+        return language_choices
+
+    @property
+    def media(self):
         # Theme and version from Wagtail Code Block settings
         THEME = get_theme()
         PRISM_VERSION = get_prism_version()
@@ -76,7 +92,7 @@ class CodeBlock(StructBlock):
 
         # Get the languages for the site from Django's settings, or the default in get_language_choices()
         for lang_code, lang_name in get_language_choices():
-            if lang_code not in [included_language[0] for included_language in INCLUDED_LANGUAGES]:
+            if lang_code not in [included_language[0] for included_language in self.INCLUDED_LANGUAGES]:
                 js_list.append(
                     "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
                         prism_version=PRISM_VERSION,
