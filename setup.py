@@ -1,9 +1,14 @@
 from setuptools import setup, find_packages
+
+with open('README.md') as f:
+    long_description = f.read()
+
 setup(
     name='wagtailcodeblock',
     version="1.14.0.0",
     description='Wagtail Code Block provides PrismJS syntax highlighting in Wagtail.',
-    long_description='A Wagtail Streamfield block for source code with real-time syntax highlighting.',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Tim Allen',
     author_email='tallen@wharton.upenn.edu',
     url='https://github.com/FlipperPA/wagtailcodeblock',
