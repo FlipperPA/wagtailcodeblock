@@ -68,7 +68,6 @@ class CodeBlock(StructBlock):
 
         if language in [lang[0] for lang in total_language_choices]:
             for language_choice in total_language_choices:
-                print(language_choice)
                 if language_choice[0] == language:
                     language_choices = (language_choice,)
                     language_default = language_choice[0]

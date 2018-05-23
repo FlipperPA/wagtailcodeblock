@@ -15,6 +15,12 @@ class ContentStreamBlock(StreamBlock):
     code = CodeBlock(label='Code')
 ```
 
+You can also force it to use a single language by providing a language code which must be included in your `WAGTAIL_CODE_BLOCK_LANGUAGES` setting:
+
+```python
+code = CodeBlock(label='Bash Code', language='bash')
+```
+
 ## Screenshot of the CMS Editor Interface
 
 ![Admin in Action](img/screenshot-editor.png)
@@ -187,7 +193,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('r', 'R'),
     ('jsx', 'React JSX'),
     ('tsx', 'React TSX'),
-    ('renpy', 'Ren'py'),
+    ('renpy', 'Ren\'py'),
     ('reason', 'Reason'),
     ('rest', 'reST (reStructuredText)'),
     ('rip', 'Rip'),
@@ -220,6 +226,11 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 ```
 
 # Change Log
+
+## 1.14.0.0
+
+* Upgrade to PrismJS 1.14.0
+* Allow passing a language code as an attribute, only allowing the single language to be used.
 
 ## 1.11.0.0
 
