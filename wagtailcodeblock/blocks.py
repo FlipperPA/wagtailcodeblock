@@ -27,35 +27,59 @@ class CodeBlock(StructBlock):
     A Wagtail StreamField block for code syntax highlighting using PrismJS.
     """
 
-    WCB_LANGUAGES = get_language_choices()
-    off_languages = ['html', 'mathml', 'svg', 'xml']
+    def __init__(self, **kwargs):
+        self.language = ChoiceBlock(
+            choices=self.get_language_choice_list(**kwargs),
+            help_text=_('Coding language'),
+            label=_('Language'),
+        )
+        self.code = TextBlock(label=_('Code'))
 
-    language = ChoiceBlock(choices=WCB_LANGUAGES, help_text=_('Coding language'), label=_('Language'))
-    code = TextBlock(label=_('Code'))
+        super().__init__(**kwargs)
+
+    def get_language_choice_list(self, **kwargs):
+        print('Here')
+        # If a language is passed in as part of a code block, use it.
+        language = kwargs.get('language', False)
+
+        if language in self.WCB_LANGUAGES + self.included_languages:
+            language_choices = (('html', 'HTML',),)
+        else:
+            language_choices = self.WCB_LANGUAGES
+
+        return language_choices
 
     @property
     def media(self):
+        # Languages included in PrismJS core
+        included_languages = (
+            ('html', 'HTML'),
+            ('mathml', 'MathML'),
+            ('svg', 'SVG'),
+            ('xml', 'XML'),
+        )
 
-        theme = get_theme()
-
-        prism_version = get_prism_version()
-        if theme:
-            prism_theme = '-{theme}'.format(theme=theme)
+        # Languages from WagtailCodeBlock settings
+        WCB_LANGUAGES = get_language_choices()
+        THEME = get_theme()
+        PRISM_VERSION = get_prism_version()
+        if THEME:
+            prism_theme = '-{theme}'.format(theme=THEME)
         else:
             prism_theme = ""
 
         js_list = [
             "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
-                prism_version=prism_version,
+                prism_version=PRISM_VERSION,
             ),
         ]
 
-        for lang_code, lang_name in self.WCB_LANGUAGES:
+        for lang_code, lang_name in WCB_LANGUAGES:
             # Review: https://github.com/PrismJS/prism/blob/gh-pages/prism.js#L602
-            if lang_code not in self.off_languages:
+            if lang_code not in [included_language[0] for included_language in included_languages]:
                 js_list.append(
                     "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
-                        prism_version=prism_version,
+                        prism_version=PRISM_VERSION,
                         lang_code=lang_code,
                     )
                 )
@@ -64,7 +88,7 @@ class CodeBlock(StructBlock):
             css={
                 'all': [
                     "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
-                        prism_version=prism_version,
+                        prism_version=PRISM_VERSION,
                         prism_theme=prism_theme,
                     ),
                 ]
