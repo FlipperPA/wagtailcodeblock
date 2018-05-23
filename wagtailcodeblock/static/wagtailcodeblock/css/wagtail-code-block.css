@@ -1,0 +1,8 @@
+.token.tag:before {
+    content: none !important;
+}
+
+.token.tag {
+    background-color: #fff !important;
+    padding: 0 !important;
+}

@@ -9,7 +9,7 @@ def get_language_choices():
         ('bash', 'Bash/Shell'),
         ('css', 'CSS'),
         ('diff', 'diff'),
-        ('http', 'HTML'),
+        ('html', 'HTML'),
         ('javascript', 'Javascript'),
         ('json', 'JSON'),
         ('python', 'Python'),
