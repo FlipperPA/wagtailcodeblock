@@ -50,8 +50,9 @@ class CodeBlock(StructBlock):
                 help_text=_('Coding language'),
                 label=_('Language'),
                 default=language_default,
+                identifier='language',
             )),
-            ('code', TextBlock(label=_('Code'))),
+            ('code', TextBlock(label=_('Code'), identifier='code')),
         ])
 
         super().__init__(local_blocks, **kwargs)

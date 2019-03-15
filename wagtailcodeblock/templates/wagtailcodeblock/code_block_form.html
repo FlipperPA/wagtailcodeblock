@@ -4,8 +4,8 @@
     }
 
     function populate_target_code(label) {
-        target_class = '#target-element-' + label;
-        code_text = $('#' + label).val();
+        var target_class = '#target-element-' + label;
+        var code_text = $('#' + label).val();
         $(target_class).text(code_text);
         prism_repaint(target_class);
     }
@@ -29,25 +29,25 @@
                 {% endif %}
                 {{ child.render_form }}
             </li>
-            {% if child.block.label == "Language" %}
+            {% if child.block.meta.identifier == "language" %}
                 <script>
                     $(document).ready(function () {
                         // Set initial language class on load
-                        target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
+                        var target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
                         {% if child.id_for_label|length %}
                             $(target_class).addClass('language-' + $('#{{ child.id_for_label }}').val());
                         {% endif %}
 
                         // Change language being highlighted when dropdown is changed
                         $('#{{ child.id_for_label }}').bind('input propertychange', function () {
-                            language_class = 'language-' + $('#{{ child.id_for_label }}').val();
+                            var language_class = 'language-' + $('#{{ child.id_for_label }}').val();
                             $(target_class).removeClass().addClass(language_class);
                             prism_repaint(target_class);
                         });
                     });
                 </script>
             {% endif %}
-            {% if child.block.label == "Code" %}
+            {% if child.block.meta.identifier == "code" %}
                 <script>
                     $(document).ready(function () {
                         populate_target_code('{{ child.id_for_label }}');
