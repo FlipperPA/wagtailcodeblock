@@ -29,6 +29,6 @@ def get_theme():
 
 
 def get_prism_version():
-    prism_version = "1.14.0"
+    prism_version = "1.15.0"
 
     return prism_version
