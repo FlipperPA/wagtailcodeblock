@@ -82,6 +82,7 @@ Each language in this setting is a tuple of the PrismJS code and a descriptive l
 ```python
 WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('abap', 'ABAP'),
+    ('abnf', 'Augmented Backus–Naur form'),
     ('actionscript', 'ActionScript'),
     ('ada', 'Ada'),
     ('apacheconf', 'Apache Configuration'),
@@ -94,16 +95,18 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('aspnet', 'ASP.NET (C#)'),
     ('autohotkey', 'AutoHotkey'),
     ('autoit', 'AutoIt'),
-    ('bash', 'Bash'),
+    ('bash', 'Bash + Shell'),
     ('basic', 'BASIC'),
     ('batch', 'Batch'),
     ('bison', 'Bison'),
+    ('bnf', 'Backus–Naur form + Routing Backus–Naur form'),
     ('brainfuck', 'Brainfuck'),
     ('bro', 'Bro'),
     ('c', 'C'),
     ('clike', 'C-like'),
     ('csharp', 'C#'),
     ('cpp', 'C++'),
+    ('cil', 'CIL'),
     ('coffeescript', 'CoffeeScript'),
     ('clojure', 'Clojure'),
     ('crystal', 'Crystal'),
@@ -115,7 +118,9 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('diff', 'Diff'),
     ('django', 'Django/Jinja2'),
     ('docker', 'Docker'),
+    ('ebnf', 'Extended Backus–Naur form'),
     ('eiffel', 'Eiffel'),
+    ('ejs', 'EJS'),
     ('elixir', 'Elixir'),
     ('elm', 'Elm'),
     ('erb', 'ERB'),
@@ -123,10 +128,12 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('fsharp', 'F#'),
     ('flow', 'Flow'),
     ('fortran', 'Fortran'),
+    ('gcode', 'G-code'),
     ('gedcom', 'GEDCOM'),
     ('gherkin', 'Gherkin'),
     ('git', 'Git'),
     ('glsl', 'GLSL'),
+    ('gml', 'GameMaker Language'),
     ('go', 'Go'),
     ('graphql', 'GraphQL'),
     ('groovy', 'Groovy'),
@@ -134,6 +141,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('handlebars', 'Handlebars'),
     ('haskell', 'Haskell'),
     ('haxe', 'Haxe'),
+    ('hcl', 'HCL'),
     ('http', 'HTTP'),
     ('hpkp', 'HTTP Public-Key-Pins'),
     ('hsts', 'HTTP Strict-Transport-Security'),
@@ -144,9 +152,16 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('io', 'Io'),
     ('j', 'J'),
     ('java', 'Java'),
+    ('javadoc', 'JavaDoc'),
+    ('javadoclike', 'JavaDoc-like'),
     ('javascript', 'JavaScript'),
+    ('javastacktrace', 'Java stack trace'),
     ('jolie', 'Jolie'),
+    ('jsdoc', 'JSDoc'),
+    ('js-extras', 'JS Extras'),
     ('json', 'JSON'),
+    ('jsonp', 'JSONP'),
+    ('json5', 'JSON5'),
     ('julia', 'Julia'),
     ('keyman', 'Keyman'),
     ('kotlin', 'Kotlin'),
@@ -159,13 +174,15 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('lua', 'Lua'),
     ('makefile', 'Makefile'),
     ('markdown', 'Markdown'),
-    ('markup', 'Markup'),
+    ('markup', 'Markup + HTML + XML + SVG + MathML'),
     ('markup-templating', 'Markup templating'),
     ('matlab', 'MATLAB'),
     ('mel', 'MEL'),
     ('mizar', 'Mizar'),
     ('monkey', 'Monkey'),
+    ('n1ql', 'N1QL'),
     ('n4js', 'N4JS'),
+    ('nand2tetris-hdl', 'Nand To Tetris HDL'),
     ('nasm', 'NASM'),
     ('nginx', 'nginx'),
     ('nim', 'Nim'),
@@ -177,9 +194,10 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('oz', 'Oz'),
     ('parigp', 'PARI/GP'),
     ('parser', 'Parser'),
-    ('pascal', 'Pascal'),
+    ('pascal', 'Pascal + Object Pascal'),
     ('perl', 'Perl'),
     ('php', 'PHP'),
+    ('phpdoc', 'PHPDoc'),
     ('php-extras', 'PHP Extras'),
     ('plsql', 'PL/SQL'),
     ('powershell', 'PowerShell'),
@@ -198,6 +216,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('tsx', 'React TSX'),
     ('renpy', 'Ren\'py'),
     ('reason', 'Reason'),
+    ('regex', 'Regex'),
     ('rest', 'reST (reStructuredText)'),
     ('rip', 'Rip'),
     ('roboconf', 'Roboconf'),
@@ -214,11 +233,17 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('soy', 'Soy (Closure Template)'),
     ('stylus', 'Stylus'),
     ('swift', 'Swift'),
+    ('tap', 'TAP'),
     ('tcl', 'Tcl'),
     ('textile', 'Textile'),
+    ('toml', 'TOML'),
     ('tt2', 'Template Toolkit 2'),
     ('twig', 'Twig'),
     ('typescript', 'TypeScript'),
+    ('t4-cs', 'T4 Text Templates (C#)'),
+    ('t4-vb', 'T4 Text Templates (VB)'),
+    ('t4-templating', 'T4 templating'),
+    ('vala', 'Vala'),
     ('vbnet', 'VB.Net'),
     ('velocity', 'Velocity'),
     ('verilog', 'Verilog'),
@@ -227,13 +252,19 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('visual-basic', 'Visual Basic'),
     ('wasm', 'WebAssembly'),
     ('wiki', 'Wiki markup'),
+    ('xeora', 'Xeora + XeoraCube'),
     ('xojo', 'Xojo (REALbasic)'),
+    ('xquery', 'XQuery'),
     ('yaml', 'YAML'),
-    ('xeora', 'Xeora'),
 )
 ```
 
 # Change Log
+
+## 1.15.0.0
+
+* Update to PrismJS 1.15.0
+* Bug fix: do not key off of `Language` label, as it is translatable.
 
 ## 1.14.0.0
 
@@ -271,4 +302,5 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 # Contributors
 
 * José Luis (https://github.com/SalahAdDin)
+* Lucas Moeskops (https://github.com/lucasmoeskops)
 * Nick Sarbicki (https://github.com/NDevox)
