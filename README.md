@@ -4,6 +4,10 @@ Wagtail Code Block is a syntax highlighted block for source code for the Wagtail
 
 It uses the [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the website and requires jQuery.
 
+## Wagtail 2.7: React StreamFields
+
+Wagtail 2.7 is bringing us a major upgrade to the StreamField editor interface. As a result, version 1.15.0.0 will be the last to support Wagtail < 2.7. If you're using Wagtail 2.6.x, please `pip install 'wagtailcodeblock<=1.15.0.0`.
+
 ## Example Usage
 
 ```python
