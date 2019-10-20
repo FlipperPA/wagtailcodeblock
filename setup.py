@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=[
-        'wagtail>=1.8',
+        'wagtail>=2.7',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -25,9 +25,9 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Framework :: Django',
         'Framework :: Wagtail',
         'Framework :: Wagtail :: 2',
