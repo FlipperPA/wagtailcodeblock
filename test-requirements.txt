@@ -1,0 +1,4 @@
+pytest-cov
+pytest-django
+django_coverage_plugin==1.6.0
+-e .  # installs "self" package from this directory
