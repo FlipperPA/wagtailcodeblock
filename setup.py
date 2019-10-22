@@ -5,7 +5,6 @@ with open('README.md') as f:
 
 setup(
     name='wagtailcodeblock',
-    version="1.15.0.0",
     description='Wagtail Code Block provides PrismJS syntax highlighting in Wagtail.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -18,6 +17,8 @@ setup(
     install_requires=[
         'wagtail>=2.7rc1',
     ],
+    setup_requires=['setuptools_scm'],
+    use_scm_version=True,
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
