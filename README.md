@@ -1,6 +1,6 @@
 # Wagtail Code Block
 
-Wagtail Code Block is a syntax highlighted block for source code for the Wagtail CMS. It features real-time highlighting in the Wagtail editor, the front end, line numbering, and support for PrismJS themes.
+Wagtail Code Block is a syntax highlighter block for source code for the Wagtail CMS. It features real-time highlighting in the Wagtail editor, the front end, line numbering, and support for PrismJS themes.
 
 It uses the [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the website and requires jQuery.
 
