@@ -1,8 +1,11 @@
 from json import dumps
 
+import pytest
+
 from tests.models import CodeBlockPage
 
 
+@pytest.mark.django_db
 def test_create_page():
     """
     Tests creating a page with a Code Block.
@@ -18,8 +21,7 @@ def test_create_page():
             }
         }])
     )
-    # t.save()
-    print(t)
+    t.save()
 
     assert True
 
