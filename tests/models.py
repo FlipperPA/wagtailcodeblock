@@ -5,16 +5,16 @@ from wagtail.core.models import Page
 from wagtailcodeblock.blocks import CodeBlock
 
 
-class ContentStreamBlock(StreamBlock):
+class CodeStreamBlock(StreamBlock):
     """
     Test StreamBlock with a CodeBlock.
     """
     code = CodeBlock()
 
 
-class TestPage(Page):
+class CodeBlockPage(Page):
     body = StreamField(
-        ContentStreamBlock(),
+        CodeStreamBlock(),
         blank=True,
     )
 
