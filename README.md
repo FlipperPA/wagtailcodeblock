@@ -85,9 +85,11 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('abnf', 'Augmented Backus–Naur form'),
     ('actionscript', 'ActionScript'),
     ('ada', 'Ada'),
+    ('antlr4', 'ANTLR4'),
     ('apacheconf', 'Apache Configuration'),
     ('apl', 'APL'),
     ('applescript', 'AppleScript'),
+    ('aql', 'AQL'),
     ('arduino', 'Arduino'),
     ('arff', 'ARFF'),
     ('asciidoc', 'AsciiDoc'),
@@ -104,6 +106,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('bro', 'Bro'),
     ('c', 'C'),
     ('clike', 'C-like'),
+    ('cmake', 'CMake'),
     ('csharp', 'C#'),
     ('cpp', 'C++'),
     ('cil', 'CIL'),
@@ -117,6 +120,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('dart', 'Dart'),
     ('diff', 'Diff'),
     ('django', 'Django/Jinja2'),
+    ('dns-zone-file', 'DNS Zone File'),
     ('docker', 'Docker'),
     ('ebnf', 'Extended Backus–Naur form'),
     ('eiffel', 'Eiffel'),
@@ -125,10 +129,13 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('elm', 'Elm'),
     ('erb', 'ERB'),
     ('erlang', 'Erlang'),
+    ('etlua', 'Embedded LUA Templating'),
     ('fsharp', 'F#'),
     ('flow', 'Flow'),
     ('fortran', 'Fortran'),
+    ('ftl', 'Freemarker Template Language'),
     ('gcode', 'G-code'),
+    ('gdscript', 'GDScript'),
     ('gedcom', 'GEDCOM'),
     ('gherkin', 'Gherkin'),
     ('git', 'Git'),
@@ -157,8 +164,10 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('javascript', 'JavaScript'),
     ('javastacktrace', 'Java stack trace'),
     ('jolie', 'Jolie'),
+    ('jq', 'JQ'),
     ('jsdoc', 'JSDoc'),
     ('js-extras', 'JS Extras'),
+    ('js-templates', 'JS Templates'),
     ('json', 'JSON'),
     ('jsonp', 'JSONP'),
     ('json5', 'JSON5'),
@@ -167,6 +176,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('kotlin', 'Kotlin'),
     ('latex', 'LaTeX'),
     ('less', 'Less'),
+    ('lilypond', 'Lilypond'),
     ('liquid', 'Liquid'),
     ('lisp', 'Lisp'),
     ('livescript', 'LiveScript'),
@@ -195,6 +205,8 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('parigp', 'PARI/GP'),
     ('parser', 'Parser'),
     ('pascal', 'Pascal + Object Pascal'),
+    ('pascaligo', 'Pascaligo'),
+    ('pcaxis', 'PC Axis'),
     ('perl', 'Perl'),
     ('php', 'PHP'),
     ('phpdoc', 'PHPDoc'),
@@ -220,6 +232,7 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('rest', 'reST (reStructuredText)'),
     ('rip', 'Rip'),
     ('roboconf', 'Roboconf'),
+    ('robot-framework', 'Robot Framework'),
     ('ruby', 'Ruby'),
     ('rust', 'Rust'),
     ('sas', 'SAS'),
@@ -227,8 +240,13 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('scss', 'Sass (Scss)'),
     ('scala', 'Scala'),
     ('scheme', 'Scheme'),
+    ('shell-session', 'Shell Session'),
     ('smalltalk', 'Smalltalk'),
     ('smarty', 'Smarty'),
+    ('solidity', 'Solidity (Ethereum)'),
+    ('sparql', 'SPARQL'),
+    ('splunk-spl', 'Splunk SPL'),
+    ('sqf', 'SQF: Status Quo Function (Arma 3)'),
     ('sql', 'SQL'),
     ('soy', 'Soy (Closure Template)'),
     ('stylus', 'Stylus'),
@@ -256,10 +274,17 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('xojo', 'Xojo (REALbasic)'),
     ('xquery', 'XQuery'),
     ('yaml', 'YAML'),
+    ('zig', 'Zig'),
 )
 ```
 
 # Change Log
+
+## 1.17.1.0
+
+* Update to PrismJS 1.17.1
+* Switch to pytest-django for a basic test suite.
+* Ensure compatibility with new ReactJS StreamFields with Wagtail 2.7.
 
 ## 1.15.0.0
 
