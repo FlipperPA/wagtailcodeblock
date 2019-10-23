@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=[
-        'wagtail>=2.7rc1',
+        'wagtail>=2',
     ],
     setup_requires=['setuptools_scm'],
     use_scm_version=True,
