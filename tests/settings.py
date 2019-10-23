@@ -27,12 +27,12 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     "wagtail.core",
     "wagtail.admin",
     "wagtail.documents",
+    "tests",
     "wagtail.images",
     "wagtail.users",
     "wagtailcodeblock",
     "modelcluster",
     "taggit",
-    "tests",
 ]
 
 MIDDLEWARE = settings.MIDDLEWARE + [
