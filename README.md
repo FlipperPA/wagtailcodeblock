@@ -326,6 +326,8 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 # Contributors
 
+* Brandon Lafving (https://github.com/blafving)
 * José Luis (https://github.com/SalahAdDin)
 * Lucas Moeskops (https://github.com/lucasmoeskops)
 * Nick Sarbicki (https://github.com/NDevox)
+
