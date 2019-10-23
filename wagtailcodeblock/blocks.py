@@ -79,7 +79,7 @@ class CodeBlock(StructBlock):
             prism_theme = ""
 
         js_list = [
-            "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
+            "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
                 prism_version=PRISM_VERSION,
             ),
         ]
@@ -88,7 +88,7 @@ class CodeBlock(StructBlock):
         for lang_code, lang_name in get_language_choices():
             if lang_code not in [included_language[0] for included_language in self.INCLUDED_LANGUAGES]:
                 js_list.append(
-                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
+                    "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
                         prism_version=PRISM_VERSION,
                         lang_code=lang_code,
                     )
@@ -97,7 +97,7 @@ class CodeBlock(StructBlock):
             js=js_list,
             css={
                 'all': [
-                    "https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
+                    "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
                         prism_version=PRISM_VERSION,
                         prism_theme=prism_theme,
                     ),
