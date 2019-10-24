@@ -282,9 +282,10 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 ## 1.17.1.0
 
-* Update to PrismJS 1.17.1
-* Switch to pytest-django for a basic test suite.
 * Ensure compatibility with new ReactJS StreamFields with Wagtail 2.7.
+* Update to PrismJS 1.17.1
+* Add pytest-django for a basic test suite.
+* Switch to using `setuptools_scm` instead of a `MANIFEST.in` file. Use tagging for PyPI version. 
 
 ## 1.15.0.0
 
