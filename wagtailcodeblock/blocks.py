@@ -64,7 +64,7 @@ class CodeBlock(StructBlock):
                     language_default = language_choice[0]
         else:
             language_choices = WCB_LANGUAGES
-            language_default = None
+            language_default = kwargs.get('default_language')
 
         return language_choices, language_default
 
