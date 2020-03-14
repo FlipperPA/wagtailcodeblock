@@ -19,7 +19,7 @@ You can also force it to use a single language or set a default language by prov
 
 ```python
 bash_code = CodeBlock(label='Bash Code', language='bash')
-any_code = CodeBlock(label='Bash Code', default_language='python')
+any_code = CodeBlock(label='Any code', default_language='python')
 ```
 
 ## Screenshot of the CMS Editor Interface
