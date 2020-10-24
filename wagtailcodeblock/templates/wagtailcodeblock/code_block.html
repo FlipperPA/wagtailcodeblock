@@ -1,9 +1,8 @@
 {% load static wagtailcodeblock_tags %}
 {% spaceless %}
     {# This is ugly, as it'll inject this code for each block, but browsers are smart enough to not load each time. #}
-    <script src="{% static 'wagtailcodeblock/js/prism.min.js' %}" type='text/javascript'></script>
+    {% load_prism_css %}
     <link href="{% static 'wagtailcodeblock/css/prism.min.css' %}" rel="stylesheet">
-    {% load_prism_theme %}
     {% for key, val in self.items %}
         {% if key == "language" %}
             <script>
