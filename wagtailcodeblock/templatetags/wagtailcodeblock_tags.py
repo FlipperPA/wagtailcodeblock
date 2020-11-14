@@ -32,3 +32,14 @@ def load_prism_js():
         prism_version,
     )
     return mark_safe(script)
+
+
+@register.simple_tag
+def load_prism_css():
+    prism_version = get_prism_version()
+    theme = get_theme()
+    if theme:
+        script = f"<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism-{theme}.min.css' rel='stylesheet'/>"
+    else:
+        script = f"<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.css' rel='stylesheet'/>"
+    return mark_safe(script)
