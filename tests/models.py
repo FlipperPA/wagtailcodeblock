@@ -9,15 +9,13 @@ class CodeStreamBlock(StreamBlock):
     """
     Test StreamBlock with a CodeBlock.
     """
+
     code = CodeBlock()
 
 
 class CodeBlockPage(Page):
-    body = StreamField(
-        CodeStreamBlock(),
-        blank=True,
-    )
+    body = StreamField(CodeStreamBlock(), blank=True,)
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
+        StreamFieldPanel("body"),
     ]

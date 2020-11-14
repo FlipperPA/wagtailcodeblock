@@ -15,15 +15,21 @@ def test_create_page():
         slug="test-page",
         path="000100010001",
         depth=3,
-        body=dumps([{
-            "type": "code",
-            "value": {
-                "language": "python",
-                "code": "print([x for x in range(1, 5)])",
-            }
-        }])
+        body=dumps(
+            [
+                {
+                    "type": "code",
+                    "value": {
+                        "language": "python",
+                        "code": "print([x for x in range(1, 5)])",
+                    },
+                }
+            ]
+        ),
     )
     t.save()
 
-    assert '<code id="target-element-current">print([x for x in range(1, 5)])</code>' \
-    	in t.body.render_as_block()
+    assert (
+        '<code id="target-element-current">print([x for x in range(1, 5)])</code>'
+        in t.body.render_as_block()
+    )
