@@ -15,10 +15,11 @@ class ContentStreamBlock(StreamBlock):
     code = CodeBlock(label='Code')
 ```
 
-You can also force it to use a single language by providing a language code which must be included in your `WAGTAIL_CODE_BLOCK_LANGUAGES` setting:
+You can also force it to use a single language or set a default language by providing a language code which must be included in your `WAGTAIL_CODE_BLOCK_LANGUAGES` setting:
 
 ```python
-code = CodeBlock(label='Bash Code', language='bash')
+bash_code = CodeBlock(label='Bash Code', language='bash')
+any_code = CodeBlock(label='Any code', default_language='python')
 ```
 
 ## Screenshot of the CMS Editor Interface
