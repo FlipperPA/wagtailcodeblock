@@ -1,10 +1,7 @@
 from django.template import Library
 from django.utils.safestring import mark_safe
 
-from ..settings import (
-    get_prism_version,
-    get_theme
-)
+from ..settings import get_prism_version, get_theme
 
 register = Library()
 
@@ -22,11 +19,10 @@ def load_prism_theme():
 
     if theme:
         script = "<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/{0}/themes/prism-{1}.min.css' rel='stylesheet'/>".format(
-            prism_version,
-            theme,
+            prism_version, theme,
         )
         return mark_safe(script)
-    return ''
+    return ""
 
 
 @register.simple_tag
