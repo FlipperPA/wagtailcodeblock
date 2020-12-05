@@ -54,6 +54,7 @@ Wagtail Code Block defaults to the PrismJS "Coy" theme, which looks good with Wa
 * **'funky'**: <a href="http://prismjs.com/index.html?theme=prism-funky" target="_blank">Funky</a>
 * **'okaidia'**: <a href="http://prismjs.com/index.html?theme=prism-okaidia" target="_blank">Okaidia</a>
 * **'solarizedlight'**: <a href="http://prismjs.com/index.html?theme=prism-solarizedlight" target="_blank">Solarized Light</a>
+* **'tomorrow'**: <a href="http://prismjs.com/index.html?theme=prism-tomorrow" target="_blank">Tomorrow Night</a>
 * **'twilight'**: <a href="http://prismjs.com/index.html?theme=prism-twilight" target="_blank">Twilight</a>
 
 For example, in you want to use the Solarized Light theme: `WAGTAIL_CODE_BLOCK_THEME = 'solarizedlight'`
