@@ -7,7 +7,7 @@ from wagtail.core.blocks import (
     ChoiceBlock,
 )
 
-from .settings import get_language_choices, get_theme, get_prism_version
+from .settings import get_language_choices, get_prism_version
 
 
 class CodeBlock(StructBlock):
@@ -71,13 +71,10 @@ class CodeBlock(StructBlock):
 
     @property
     def media(self):
-        # Theme and version from Wagtail Code Block settings
-        THEME = get_theme()
+        # Version from Wagtail Code Block settings
         PRISM_VERSION = get_prism_version()
-        if THEME:
-            prism_theme = "-{theme}".format(theme=THEME)
-        else:
-            prism_theme = ""
+
+        structblock_media = super().media
 
         js_list = [
             "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
@@ -96,15 +93,8 @@ class CodeBlock(StructBlock):
                     )
                 )
         return Media(
-            js=js_list,
-            css={
-                "all": [
-                    "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
-                        prism_version=PRISM_VERSION, prism_theme=prism_theme,
-                    ),
-                    "wagtailcodeblock/css/wagtail-code-block.min.css",
-                ]
-            },
+            js=structblock_media._js + js_list,
+            css=structblock_media._js,
         )
 
     class Meta:
