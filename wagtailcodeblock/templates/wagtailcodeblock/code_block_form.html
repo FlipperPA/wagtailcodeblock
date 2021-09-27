@@ -1,17 +1,5 @@
 {% load wagtailadmin_tags  %}
 
-<script>
-    function prism_repaint(target_class) {
-        Prism.highlightElement($(target_class)[0]);
-    }
-
-    function populate_target_code(label) {
-        var target_class = '#target-element-' + label;
-        var code_text = $('#' + label).val();
-        $(target_class).text(code_text);
-        prism_repaint(target_class);
-    }
-</script>
 <div class="{{ classname }}">
     <style>
         .code-block textarea {
@@ -32,37 +20,7 @@
             {% endif %}
             {{ child.render_form }}
         </div>
-        {% if child.block.meta.identifier == "language" %}
-            <script>
-                $(document).ready(function () {
-                    // Set initial language class on load
-                    var target_class = '#target-element-{{ child.id_for_label }}'.replace('language', 'code');
-                    {% if child.id_for_label|length %}
-                        $(target_class).addClass('language-' + $('#{{ child.id_for_label }}').val());
-                    {% endif %}
-
-                    // Change language being highlighted when dropdown is changed
-                    $('#{{ child.id_for_label }}').bind('input propertychange', function () {
-                        var language_class = 'language-' + $('#{{ child.id_for_label }}').val();
-                        $(target_class).removeClass().addClass(language_class);
-                        prism_repaint(target_class);
-                    });
-                });
-            </script>
-        {% endif %}
-        {% if child.block.meta.identifier == "code" %}
-            <script>
-                $(document).ready(function () {
-                    populate_target_code('{{ child.id_for_label }}');
-
-                    $('#{{ child.id_for_label }}').bind('input propertychange', function () {
-                        populate_target_code('{{ child.id_for_label }}');
-                    });
-                });
-            </script>
-            <li>
-                <pre><code id="target-element-{{ child.id_for_label }}"></code></pre>
-            </li>
-        {% endif %}
     {% endfor %}
+
+    {% comment %} <pre><code id="{{ prefix}}-target-element"></code></pre> {% endcomment %}
 </div>
