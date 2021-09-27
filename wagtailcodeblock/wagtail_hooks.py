@@ -22,6 +22,6 @@ def editor_css():
     ]
 
     return format_html_join(
-        '\n', '<link rel="stylesheet" href="{}">',
+        '\n', '<link rel="stylesheet" type="text/css" href="{}">',
         extra_css
     )
