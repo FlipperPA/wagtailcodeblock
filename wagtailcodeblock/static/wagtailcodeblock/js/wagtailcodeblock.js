@@ -13,7 +13,6 @@ CodeBlockDefinition.prototype.render = function(placeholder, prefix, initialStat
 
     function updateLanguage() {
         var languageCode = languageField.val();
-        console.log("Updating language to " + languageCode);
         targetField.removeClass().addClass('language-' + languageCode);
         prismRepaint();
     }
