@@ -80,7 +80,6 @@ class CodeBlock(StructBlock):
         form_classname = "code-block struct-block"
         form_template = "wagtailcodeblock/code_block_form.html"
 
-# if wagtail.VERSION >= (2,14):
 
 class CodeBlockAdapter(StructBlockAdapter):
     js_constructor = 'wagtailcodeblock.blocks.CodeBlock'
