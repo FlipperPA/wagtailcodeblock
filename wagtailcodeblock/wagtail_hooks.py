@@ -22,6 +22,25 @@ def editor_css():
     ]
 
     return format_html_join(
-        '\n', '<link rel="stylesheet" type="text/css" href="{}">',
-        extra_css
+        '\n', '<link rel="stylesheet" style="text/css" href="{}">',
+        ((f,) for f in extra_css),
     )
+
+@hooks.register('insert_editor_js')
+def editor_js():
+    """Add all prism languages"""
+    PRISM_VERSION = get_prism_version()
+
+    js_files = [
+        "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
+            prism_version=PRISM_VERSION,
+        ),
+        "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/plugins/autoloader/prism-autoloader.min.js".format(
+            prism_version=PRISM_VERSION,
+        ),
+    ]
+
+    js_includes = format_html_join('\n', '<script type="text/javascript" src="{}"></script>',
+        ( (f,) for f in js_files),
+    )
+    return js_includes

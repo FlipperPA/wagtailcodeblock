@@ -1,11 +1,6 @@
 {% load wagtailadmin_tags  %}
 
 <div class="{{ classname }}">
-    <style>
-        .code-block textarea {
-            font-family: FreeMono, monospace;
-        }
-    </style>
     {% if help_text %}
         <div class="object-help help">
             {% icon name="help" class_name="default" %}
@@ -22,5 +17,5 @@
         </div>
     {% endfor %}
 
-    {% comment %} <pre><code id="{{ prefix}}-target-element"></code></pre> {% endcomment %}
+    <pre><code id="{{ prefix }}-target"></code></pre>
 </div>
