@@ -334,3 +334,4 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 * Lucas Moeskops (https://github.com/lucasmoeskops)
 * Michel Wortmann (https://github.com/mwort)
 * Nick Sarbicki (https://github.com/NDevox)
+* cybelew (https://github.com/cybelew)
