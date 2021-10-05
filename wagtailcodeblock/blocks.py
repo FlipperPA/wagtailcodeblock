@@ -1,4 +1,7 @@
+import wagtail
+
 from django.forms import Media
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from wagtail.core.blocks import (
@@ -6,8 +9,10 @@ from wagtail.core.blocks import (
     TextBlock,
     ChoiceBlock,
 )
+from wagtail.core.blocks.struct_block import StructBlockAdapter
+from wagtail.core.telepath import register
 
-from .settings import get_language_choices, get_theme, get_prism_version
+from .settings import get_language_choices
 
 
 class CodeBlock(StructBlock):
@@ -69,46 +74,22 @@ class CodeBlock(StructBlock):
 
         return language_choices, language_default
 
-    @property
-    def media(self):
-        # Theme and version from Wagtail Code Block settings
-        THEME = get_theme()
-        PRISM_VERSION = get_prism_version()
-        if THEME:
-            prism_theme = "-{theme}".format(theme=THEME)
-        else:
-            prism_theme = ""
-
-        js_list = [
-            "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
-                prism_version=PRISM_VERSION,
-            ),
-        ]
-
-        # Get the languages for the site from Django's settings, or the default in get_language_choices()
-        for lang_code, lang_name in get_language_choices():
-            if lang_code not in [
-                included_language[0] for included_language in self.INCLUDED_LANGUAGES
-            ]:
-                js_list.append(
-                    "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/components/prism-{lang_code}.min.js".format(
-                        prism_version=PRISM_VERSION, lang_code=lang_code,
-                    )
-                )
-        return Media(
-            js=js_list,
-            css={
-                "all": [
-                    "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
-                        prism_version=PRISM_VERSION, prism_theme=prism_theme,
-                    ),
-                    "wagtailcodeblock/css/wagtail-code-block.min.css",
-                ]
-            },
-        )
-
     class Meta:
         icon = "code"
         template = "wagtailcodeblock/code_block.html"
         form_classname = "code-block struct-block"
         form_template = "wagtailcodeblock/code_block_form.html"
+
+
+class CodeBlockAdapter(StructBlockAdapter):
+    js_constructor = 'wagtailcodeblock.blocks.CodeBlock'
+
+    @cached_property
+    def media(self):
+        structblock_media = super().media
+        return Media(
+            js=structblock_media._js + ['wagtailcodeblock/js/wagtailcodeblock.js'],
+            css=structblock_media._css
+        )
+
+register(CodeBlockAdapter(), CodeBlock)
