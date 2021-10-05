@@ -16,10 +16,8 @@ def editor_css():
         prism_theme = ""
 
     extra_css = [
-        "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism{prism_theme}.min.css".format(
-            prism_version=PRISM_VERSION,
-            prism_theme=prism_theme,
-        ),
+        f"//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/themes/prism"
+        f"{prism_theme}.min.css",
         static("wagtailcodeblock/css/wagtail-code-block.min.css"),
     ]
 
@@ -36,12 +34,9 @@ def editor_js():
     PRISM_VERSION = get_prism_version()
 
     js_files = [
-        "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.js".format(
-            prism_version=PRISM_VERSION,
-        ),
-        "//cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/plugins/autoloader/prism-autoloader.min.js".format(
-            prism_version=PRISM_VERSION,
-        ),
+        f"//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/prism.min.js",
+        f"//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/plugins/autoloader/"
+        "prism-autoloader.min.js",
     ]
 
     js_includes = format_html_join(
