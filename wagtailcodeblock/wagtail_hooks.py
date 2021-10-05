@@ -3,21 +3,22 @@ from django.utils.html import format_html_join
 
 from wagtail.core import hooks
 
-from .settings import get_theme, get_prism_version
+from .settings import get_theme, PRISM_VERSION, PRISM_PREFIX
 
 
 @hooks.register("insert_editor_css")
 def editor_css():
     THEME = get_theme()
-    PRISM_VERSION = get_prism_version()
+    print("***********************")
+    print(PRISM_PREFIX)
+    print("***********************")
     if THEME:
         prism_theme = f"-{THEME}"
     else:
         prism_theme = ""
 
     extra_css = [
-        f"//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/themes/prism"
-        f"{prism_theme}.min.css",
+        f"{PRISM_PREFIX}{PRISM_VERSION}/themes/prism{prism_theme}.min.css",
         static("wagtailcodeblock/css/wagtail-code-block.min.css"),
     ]
 
@@ -31,17 +32,15 @@ def editor_css():
 @hooks.register("insert_editor_js")
 def editor_js():
     """Add all prism languages"""
-    PRISM_VERSION = get_prism_version()
 
     js_files = [
-        f"//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/prism.min.js",
-        f"//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/plugins/autoloader/"
-        "prism-autoloader.min.js",
+        f"{PRISM_PREFIX}{PRISM_VERSION}/prism.min.js",
+        f"{PRISM_PREFIX}{PRISM_VERSION}/plugins/autoloader/prism-autoloader.min.js",
     ]
 
     js_includes = format_html_join(
         "\n",
-        '<script type="text/javascript" src="{}"></script>',
+        """<script type="text/javascript" src="{}"></script>""",
         ((f,) for f in js_files),
     )
 

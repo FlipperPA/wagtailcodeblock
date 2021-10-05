@@ -1,5 +1,8 @@
 from django.conf import settings
 
+PRISM_PREFIX = "//cdnjs.cloudflare.com/ajax/libs/prism/"
+PRISM_VERSION = "1.25.0"
+
 
 def get_language_choices():
     """
@@ -20,22 +23,9 @@ def get_language_choices():
     return getattr(settings, "WAGTAIL_CODE_BLOCK_LANGUAGES", DEFAULT_LANGUAGES)
 
 
-def get_prefix():
-    """
-    Returns the CDN prefix for PrismJS.
-    """
-    return "https://cdnjs.cloudflare.com/ajax/libs/prism/"
-
-
 def get_theme():
     """
     Returns a default theme, if not in the proejct's settings. Default theme is 'coy'.
     """
 
     return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", "coy")
-
-
-def get_prism_version():
-    prism_version = "1.25.0"
-
-    return prism_version

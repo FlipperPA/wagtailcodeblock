@@ -36,4 +36,3 @@ CodeBlockDefinition.prototype.render = function(placeholder, prefix, initialStat
 }
 
 window.telepath.register('wagtailcodeblock.blocks.CodeBlock', CodeBlockDefinition);
-

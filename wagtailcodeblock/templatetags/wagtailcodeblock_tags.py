@@ -1,54 +1,55 @@
 from django.template import Library
 from django.utils.safestring import mark_safe
 
-from ..settings import get_prefix, get_prism_version, get_theme
+from ..settings import get_theme, PRISM_VERSION, PRISM_PREFIX
 
 register = Library()
 
 
 @register.simple_tag
 def get_script_version():
-    prism_version = get_prism_version()
-    return prism_version
+    """Returns the version of PrismJS."""
+
+    return PRISM_VERSION
 
 
 @register.simple_tag
 def load_prism_theme():
-    prism_version = get_prism_version()
+    """Loads a PrismJS theme from settings."""
     theme = get_theme()
 
     if theme:
-        script = "<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/{0}/themes/prism-{1}.min.css' rel='stylesheet'/>".format(
-            prism_version, theme,
+        script = (
+            f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/themes/prism-{theme}"""
+            """.min.css" rel="stylesheet">"""
         )
+
         return mark_safe(script)
     return ""
 
 
 @register.simple_tag
 def load_prism_js():
-    prism_version = get_prism_version()
-    script = "<script defer src='https://cdnjs.cloudflare.com/ajax/libs/prism/{0}/prism.min.js'></script>".format(
-        prism_version,
-    )
+    """Loads the PrismJS javascript."""
 
-    return mark_safe(script)
+    s = f"""<script src="{PRISM_PREFIX}{PRISM_VERSION}/prism.min.js"></script>"""
+
+    return mark_safe(s)
 
 
 @register.simple_tag
 def load_prism_css():
-    prism_version = get_prism_version()
+    """Loads the PrismJS theme."""
     theme = get_theme()
-    prefix = get_prefix()
 
     if theme:
         script = (
-            f"""<link href="{prefix}{prism_version}/themes/prism-{theme}.min.css" """
-            """rel="stylesheet">"""
+            f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/themes/prism-{theme}"""
+            """.min.css" rel="stylesheet">"""
         )
     else:
         script = (
-            f"""<link href="{prefix}{prism_version}/prism.min.css" """
+            f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/prism.min.css" """
             """rel="stylesheet">"""
         )
 
