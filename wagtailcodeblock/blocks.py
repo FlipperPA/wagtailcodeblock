@@ -82,14 +82,15 @@ class CodeBlock(StructBlock):
 
 
 class CodeBlockAdapter(StructBlockAdapter):
-    js_constructor = 'wagtailcodeblock.blocks.CodeBlock'
+    js_constructor = "wagtailcodeblock.blocks.CodeBlock"
 
     @cached_property
     def media(self):
         structblock_media = super().media
         return Media(
-            js=structblock_media._js + ['wagtailcodeblock/js/wagtailcodeblock.js'],
-            css=structblock_media._css
+            js=structblock_media._js + ["wagtailcodeblock/js/wagtailcodeblock.js"],
+            css=structblock_media._css,
         )
+
 
 register(CodeBlockAdapter(), CodeBlock)
