@@ -11,7 +11,7 @@ def editor_css():
     THEME = get_theme()
     PRISM_VERSION = get_prism_version()
     if THEME:
-        prism_theme = "-{theme}".format(theme=THEME)
+        prism_theme = f"-{THEME}"
     else:
         prism_theme = ""
 
