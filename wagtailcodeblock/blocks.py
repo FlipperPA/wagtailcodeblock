@@ -2,7 +2,7 @@ import wagtail
 
 from django.forms import Media
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from wagtail.core.blocks import (
     StructBlock,

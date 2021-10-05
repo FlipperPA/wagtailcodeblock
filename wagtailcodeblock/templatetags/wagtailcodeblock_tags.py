@@ -1,7 +1,7 @@
 from django.template import Library
 from django.utils.safestring import mark_safe
 
-from ..settings import get_prism_version, get_theme
+from ..settings import get_prefix, get_prism_version, get_theme
 
 register = Library()
 
@@ -31,6 +31,7 @@ def load_prism_js():
     script = "<script defer src='https://cdnjs.cloudflare.com/ajax/libs/prism/{0}/prism.min.js'></script>".format(
         prism_version,
     )
+
     return mark_safe(script)
 
 
@@ -38,8 +39,17 @@ def load_prism_js():
 def load_prism_css():
     prism_version = get_prism_version()
     theme = get_theme()
+    prefix = get_prefix()
+
     if theme:
-        script = f"<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/themes/prism-{theme}.min.css' rel='stylesheet'/>"
+        script = (
+            f"""<link href="{prefix}{prism_version}/themes/prism-{theme}.min.css" """
+            """rel="stylesheet">"""
+        )
     else:
-        script = f"<link href='https://cdnjs.cloudflare.com/ajax/libs/prism/{prism_version}/prism.min.css' rel='stylesheet'/>"
+        script = (
+            f"""<link href="{prefix}{prism_version}/prism.min.css" """
+            """rel="stylesheet">"""
+        )
+
     return mark_safe(script)

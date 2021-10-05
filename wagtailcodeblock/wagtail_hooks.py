@@ -44,4 +44,5 @@ def editor_js():
         '<script type="text/javascript" src="{}"></script>',
         ((f,) for f in js_files),
     )
+
     return js_includes
