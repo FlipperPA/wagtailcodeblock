@@ -6,8 +6,8 @@
         {% if key == "language" %}
             <script>
             /* This is ugly, but to ensure we only create this function once, and only call
-            each library once, we need to check here in case there are multiple Wagtail blocks
-            on this page. This will ensure we only load the minimum payload. */
+            each JS library once, we need to check here in case there are multiple Wagtail
+            blocks on this page. This will ensure we only load the minimum payload. */
             if(typeof loadPrismLanguage != 'function') {
                 window.loadPrismLanguage = function(language) {
                     var libraries = [
