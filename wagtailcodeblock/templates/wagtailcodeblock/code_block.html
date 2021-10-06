@@ -1,6 +1,5 @@
 {% load static wagtailcodeblock_tags %}
 {% spaceless %}
-    {# This is ugly, as it'll inject this code for each block, but browsers are smart enough to not load each time. #}
     {% load_prism_css %}
     {% for key, val in self.items %}
         {% if key == "language" %}
