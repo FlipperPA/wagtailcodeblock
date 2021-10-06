@@ -9,9 +9,7 @@ from .settings import get_theme, PRISM_VERSION, PRISM_PREFIX
 @hooks.register("insert_editor_css")
 def editor_css():
     THEME = get_theme()
-    print("***********************")
-    print(PRISM_PREFIX)
-    print("***********************")
+
     if THEME:
         prism_theme = f"-{THEME}"
     else:

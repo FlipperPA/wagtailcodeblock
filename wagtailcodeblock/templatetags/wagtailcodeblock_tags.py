@@ -7,7 +7,7 @@ register = Library()
 
 
 @register.simple_tag
-def get_script_version():
+def prism_version():
     """Returns the version of PrismJS."""
 
     return PRISM_VERSION
@@ -26,15 +26,6 @@ def load_prism_theme():
 
         return mark_safe(script)
     return ""
-
-
-@register.simple_tag
-def load_prism_js():
-    """Loads the PrismJS javascript."""
-
-    s = f"""<script src="{PRISM_PREFIX}{PRISM_VERSION}/prism.min.js"></script>"""
-
-    return mark_safe(s)
 
 
 @register.simple_tag
