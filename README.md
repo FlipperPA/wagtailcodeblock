@@ -279,47 +279,9 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 )
 ```
 
-# Change Log
+# Release Notes
 
-## 1.17.1.0
-
-* Ensure compatibility with new ReactJS StreamFields with Wagtail 2.7.
-* Update to PrismJS 1.17.1
-* Add pytest-django for a basic test suite.
-* Switch to using `setuptools_scm` instead of a `MANIFEST.in` file. Use tagging for PyPI version. 
-
-## 1.15.0.0
-
-* Update to PrismJS 1.15.0
-* Bug fix: do not key off of `Language` label, as it is translatable.
-
-## 1.14.0.0
-
-* Upgrade to PrismJS 1.14.0
-* Allow passing a language code as an attribute, only allowing the single language to be used.
-* Fix conflict in CSS between `tag` class for Wagtail and markup syntax types.
-
-## 1.11.0.0
-
-* Upgrade to PrismJS 1.11.0
-    * Changed version numbers to match the included PrismJS release
-* Patch to add support for natively included PrismJS languages ['html', 'mathml', 'svg', 'xml']
-
-## 0.4
-
-* Support for Wagtail 2.0
-
-### 0.4.1
-
-* Upgrade to PrismJS 1.9.0, which includes a patch we made to the 'coy' theme we use as a default.
-
-## 0.3
-
-* Support for PrismJS themes
-
-### 0.3.1
-
-* Bug fixes for some front-end issues. Update documentation.
+Release notes are [available on GitHub](https://github.com/FlipperPA/wagtailcodeblock/releases).
 
 # Project Maintainers
 
