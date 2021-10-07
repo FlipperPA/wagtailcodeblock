@@ -32,7 +32,6 @@ CodeBlockDefinition.prototype.render = function(placeholder, prefix, initialStat
     languageField.on('change', updateLanguage);
     codeField.on('change', populateTargetCode);
     codeField.keypress(function() {
-        alert("Hello!");
         prismRepaint();
     });
 
