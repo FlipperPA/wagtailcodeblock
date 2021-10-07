@@ -30,10 +30,7 @@ CodeBlockDefinition.prototype.render = function(placeholder, prefix, initialStat
     updateLanguage();
     populateTargetCode();
     languageField.on('change', updateLanguage);
-    codeField.on('change', populateTargetCode);
-    codeField.keypress(function() {
-        prismRepaint();
-    });
+    codeField.on('keyup', populateTargetCode);
 
     return block;
 }
