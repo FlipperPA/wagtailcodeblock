@@ -44,6 +44,13 @@ INSTALLED_APPS = [
 
 ## Django Settings
 
+### Line Numbers
+
+Line numbers are enabled by default, but can be disabled in Django's settings:
+
+```python
+WAGTAIL_CODE_BLOCK_LINE_NUMBERS = False
+```
 ### Themes
 
 Wagtail Code Block defaults to the PrismJS "Coy" theme, which looks good with Wagtail's CMS editor design. You can choose a different theme by configuring `WAGTAIL_CODE_BLOCK_THEME` in your Django settings. PrismJS provides several themes:
@@ -61,8 +68,7 @@ If you want to use the Default theme: `WAGTAIL_CODE_BLOCK_THEME = None`
 
 ### Languages Available
 
-You can customize the languages available by configuring `WAGTAIL_CODE_BLOCK_LANGUAGES` in your Django settings.
-By default, it will be set with these languages, since most users are in the Python web development community:
+You can customize the languages available by configuring `WAGTAIL_CODE_BLOCK_LANGUAGES` in your Django settings. By default, it will be set with these languages, since most users are in the Python web development community:
 
 ```python
 WAGTAIL_CODE_BLOCK_LANGUAGES = (

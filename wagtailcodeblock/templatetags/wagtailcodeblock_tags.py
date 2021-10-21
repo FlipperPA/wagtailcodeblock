@@ -24,6 +24,8 @@ def line_numbers_js():
             "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/plugins/line-numbers/prism-line-numbers.min.js"
         }}
         """)
+    else:
+        return ""
 
 
 @register.simple_tag
