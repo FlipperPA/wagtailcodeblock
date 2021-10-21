@@ -303,3 +303,4 @@ Release notes are [available on GitHub](https://github.com/FlipperPA/wagtailcode
 * Michel Wortmann (https://github.com/mwort)
 * Nick Sarbicki (https://github.com/NDevox)
 * cybelew (https://github.com/cybelew)
+* Mark Horgan (https://github.com/markhorgan)
