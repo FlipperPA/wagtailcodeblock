@@ -1,4 +1,4 @@
-{% load wagtailadmin_tags  %}
+{% load wagtailadmin_tags %}
 
 <div class="{{ classname }}">
     {% if help_text %}
@@ -14,6 +14,20 @@
                 <label class="field__label" {% if child.id_for_label %}for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}</label>
             {% endif %}
             {{ child.render_form }}
+
+            {% comment %}
+            This block triggers the autosize() function by faking an input event after the
+            document is fully loaded. It isn't pretty, but it works.
+            {% endcomment %}
+            {% if child.block.label == "Code" %}
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var ta = document.getElementById('{{ child.id_for_label }}');
+                    var evt = new Event('input');
+                    ta.dispatchEvent(evt);
+                });
+                </script>
+            {% endif %}
         </div>
     {% endfor %}
 
