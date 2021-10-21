@@ -29,3 +29,11 @@ def get_theme():
     """
 
     return getattr(settings, "WAGTAIL_CODE_BLOCK_THEME", "coy")
+
+
+def get_line_numbers():
+    """
+    Returns the line numbers setting.
+    """
+
+    return getattr(settings, "WAGTAIL_CODE_BLOCK_LINE_NUMBERS", True)

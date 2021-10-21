@@ -17,7 +17,7 @@
                         {
                             "id": "code-block-prismjs-" + language,
                             "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{% prism_version %}/components/prism-" + language + ".min.js"
-                        }
+                        }{% line_numbers_js %}
                     ];
 
                     for(const library of libraries) {
