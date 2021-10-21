@@ -55,7 +55,7 @@ def load_prism_css():
         )
     else:
         script = (
-            f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/prism.min.css" """
+            f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/themes/prism.min.css" """
             """rel="stylesheet">"""
         )
     
