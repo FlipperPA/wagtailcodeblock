@@ -14,7 +14,7 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
-    install_requires=["wagtail>=2.13",],
+    install_requires=["wagtail>=3",],
     setup_requires=["setuptools_scm"],
     use_scm_version=True,
     classifiers=[
