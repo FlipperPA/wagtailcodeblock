@@ -4,13 +4,13 @@ from django.forms import Media
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
-from wagtail.core.blocks import (
+from wagtail.blocks import (
     StructBlock,
     TextBlock,
     ChoiceBlock,
 )
-from wagtail.core.blocks.struct_block import StructBlockAdapter
-from wagtail.core.telepath import register
+from wagtail.blocks.struct_block import StructBlockAdapter
+from wagtail.telepath import register
 
 from .settings import get_language_choices
 

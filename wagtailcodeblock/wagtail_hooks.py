@@ -1,7 +1,7 @@
 from django.templatetags.static import static
 from django.utils.html import format_html_join
 
-from wagtail.core import hooks
+from wagtail import hooks
 
 from .settings import get_theme, PRISM_VERSION, PRISM_PREFIX
 

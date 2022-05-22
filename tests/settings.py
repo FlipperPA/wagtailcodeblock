@@ -24,7 +24,7 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     "django.contrib.messages",
     "django.contrib.sessions",
     "django.contrib.staticfiles",
-    "wagtail.core",
+    "wagtail",
     "wagtail.admin",
     "wagtail.documents",
     "tests",
@@ -43,7 +43,7 @@ MIDDLEWARE = settings.MIDDLEWARE + [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "wagtail.core.middleware.SiteMiddleware",
+    "wagtail.middleware.SiteMiddleware",
 ]
 
 ROOT_URLCONF = "tests.urls"
