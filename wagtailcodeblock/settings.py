@@ -1,7 +1,7 @@
 from django.conf import settings
 
 PRISM_PREFIX = "//cdnjs.cloudflare.com/ajax/libs/prism/"
-PRISM_VERSION = "1.25.0"
+PRISM_VERSION = "1.28.0"
 
 
 def get_language_choices():
@@ -37,3 +37,11 @@ def get_line_numbers():
     """
 
     return getattr(settings, "WAGTAIL_CODE_BLOCK_LINE_NUMBERS", True)
+
+
+def get_copy_to_clipboard():
+    """
+    Returns the copy to clipboard setting.
+    """
+
+    return getattr(settings, "WAGTAIL_CODE_BLOCK_COPY_TO_CLIPBOARD", True)

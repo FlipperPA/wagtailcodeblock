@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'wagtailcodeblock',
     ...
 ]
-``` 
+```
 
 ## Django Settings
 
@@ -51,6 +51,15 @@ Line numbers are enabled by default, but can be disabled in Django's settings:
 ```python
 WAGTAIL_CODE_BLOCK_LINE_NUMBERS = False
 ```
+
+### Copy to clipboard
+
+Copy to clipboard is enabled by default, but can be disabled in Django's settings:
+
+```python
+WAGTAIL_CODE_BLOCK_COPY_TO_CLIPBOARD = False
+```
+
 ### Themes
 
 Wagtail Code Block defaults to the PrismJS "Coy" theme, which looks good with Wagtail's CMS editor design. You can choose a different theme by configuring `WAGTAIL_CODE_BLOCK_THEME` in your Django settings. PrismJS provides several themes:
@@ -304,3 +313,4 @@ Release notes are [available on GitHub](https://github.com/FlipperPA/wagtailcode
 * Nick Sarbicki (https://github.com/NDevox)
 * cybelew (https://github.com/cybelew)
 * Mark Horgan (https://github.com/markhorgan)
+* Rami Boutassghount (https://github.com/ramiboutas)
