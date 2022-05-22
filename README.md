@@ -28,9 +28,15 @@ any_code = CodeBlock(label='Any code', default_language='python')
 
 ## Installation & Setup
 
-To install Wagtail Code Block simply run:
+To install Wagtail Code Block run:
 
-`pip install wagtailcodeblock`
+```bash
+# Wagtail 3.0 and greater
+pip install wagtailcodeblock
+
+# Wagtail 2.x
+pip install wagtailcodeblock==1.25.0.2
+```
 
 And add `wagtailcodeblock` to your `INSTALLED_APPS` setting:
 
