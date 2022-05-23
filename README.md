@@ -300,23 +300,14 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 )
 ```
 
-# Release Notes
+# Release Notes & Contributors
 
-Release notes are [available on GitHub](https://github.com/FlipperPA/wagtailcodeblock/releases).
+* Thank you to our [wonderful contributors](https://github.com/FlipperPA/wagtailcodeblock/graphs/contributors)!
+* Release notes are [available on GitHub](https://github.com/FlipperPA/wagtailcodeblock/releases).
 
 # Project Maintainers
 
 * Timothy Allen (https://github.com/FlipperPA)
 * Milton Lenis (https://github.com/MiltonLn)
 
-# Contributors
-
-* Andy Woods (https://github.com/andytwoods)
-* Brandon Lafving (https://github.com/blafving)
-* José Luis (https://github.com/SalahAdDin)
-* Lucas Moeskops (https://github.com/lucasmoeskops)
-* Michel Wortmann (https://github.com/mwort)
-* Nick Sarbicki (https://github.com/NDevox)
-* cybelew (https://github.com/cybelew)
-* Mark Horgan (https://github.com/markhorgan)
-* Rami Boutassghount (https://github.com/ramiboutas)
+This package was created by the staff of [Wharton Research Data Services](https://wrds.wharton.upenn.edu/). We are thrilled that [The Wharton School](https://www.wharton.upenn.edu/) allows us a certain amount of time to contribute to open-source projects. We add features as they are necessary for our projects, and try to keep up with Issues and Pull Requests as best we can. Due to constraints of time (our full time jobs!), Feature Requests without a Pull Request may not be implemented, but we are always open to new ideas and grateful for contributions and our users.
