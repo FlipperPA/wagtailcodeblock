@@ -1,7 +1,21 @@
-def test_home_page_with_code_block(home_page, client):
-    """
-    Checks to make sure we can create a page with a code block.
-    """
-    print(home_page)
+from wagtail.admin.panels import StreamFieldPanel
+from wagtail.blocks import StreamBlock
+from wagtail.fields import StreamField
+from wagtail.models import Page
+from wagtailcodeblock.blocks import CodeBlock
 
-    assert "for x" in home_page.body
+
+class CodeStreamBlock(StreamBlock):
+    """
+    Test StreamBlock with a CodeBlock.
+    """
+
+    code = CodeBlock()
+
+
+class CodeBlockPage(Page):
+    body = StreamField(CodeStreamBlock(), blank=True,)
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel("body"),
+    ]
