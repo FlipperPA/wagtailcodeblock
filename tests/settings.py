@@ -2,6 +2,7 @@ from django.conf import settings
 
 SECRET_KEY = "tests"
 DEBUG = True
+USE_TZ = True
 
 TEMPLATES = [
     {
@@ -13,7 +14,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ]
+            ],
+            "debug": True,
         },
     }
 ]
