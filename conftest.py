@@ -3,18 +3,18 @@ from json import dumps
 from django.contrib.contenttypes.models import ContentType
 
 import pytest
-from wagtail.admin.edit_handlers import StreamFieldPanel
-from wagtail import Page, Locale, Site, StreamField
+from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page, Locale, Site, StreamField
 from wagtailcodeblock.blocks import CodeBlock
 
 
 class TestPage(Page):
-    body = StreamField(
-        code = CodeBlock(),
-    )
+    body = StreamField([
+        ("code", CodeBlock()),
+    ])
 
     content_panels = [
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
 
