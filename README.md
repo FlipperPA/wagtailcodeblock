@@ -24,7 +24,7 @@ any_code = CodeBlock(label='Any code', default_language='python')
 
 ## Screenshot of the CMS Editor Interface
 
-![Admin in Action](https://raw.githubusercontent.com/FlipperPA/wagtailcodeblock/main/img/screenshot-editor.png)
+![Admin in Action](https://raw.githubusercontent.com/FlipperPA/wagtailcodeblock/main/docs/img/screenshot-editor.png)
 
 ## Installation & Setup
 
