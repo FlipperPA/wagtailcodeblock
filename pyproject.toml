@@ -31,7 +31,6 @@ classifiers=[
 ]
 dependencies = [
     "wagtail>=4.2",
-    'importlib-metadata; python_version<"3.8"',
 ]
 dynamic = ["version"]
 
