@@ -30,7 +30,7 @@ classifiers=[
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
 dependencies = [
-    "wagtail>=4.2",
+    "wagtail>=3",
 ]
 dynamic = ["version"]
 
