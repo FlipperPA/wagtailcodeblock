@@ -1,7 +1,7 @@
 from django.conf import settings
 
 PRISM_PREFIX = "//cdnjs.cloudflare.com/ajax/libs/prism/"
-PRISM_VERSION = "1.28.0"
+PRISM_VERSION = "1.29.0"
 
 
 def get_language_choices():
