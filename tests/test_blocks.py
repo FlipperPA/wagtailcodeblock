@@ -1,8 +1,4 @@
-from json import dumps
-
 import pytest
-
-from tests.models import CodeBlockPage
 
 
 @pytest.mark.django_db

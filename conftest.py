@@ -37,7 +37,7 @@ def test_page(db):
         title="TEST Wagtail Code Block Page",
         slug="wagtail-code-block",
         content_type=page_content_type,
-        path="00010001",
+        path="00010002",
         depth=2,
         numchild=0,
         url_path="/wagtail-code-block/",
@@ -49,11 +49,6 @@ def test_page(db):
                 "code": "print([x for x in range(1, 5)])",
             },
         }]),
-    )
-
-    # Create default site
-    site, created = Site.objects.get_or_create(
-        hostname="localhost", root_page_id=test_page.id, is_default_site=True
     )
 
     return test_page
