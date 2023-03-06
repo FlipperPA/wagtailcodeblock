@@ -29,6 +29,7 @@ classifiers=[
     "Framework :: Django",
     "Framework :: Wagtail",
     "Framework :: Wagtail :: 3",
+    "Framework :: Wagtail :: 4",
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
