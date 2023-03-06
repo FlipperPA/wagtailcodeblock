@@ -13,15 +13,13 @@ def test_page(db):
     """
     Create a root page in the same way Wagtail does in migrations. See:
     https://github.com/wagtail/wagtail/blob/main/wagtail/core/migrations/0002_initial_data.py#L12  # noqa
-    """
-    """
-    We should created the home and vendor pages at the same time so they can be done in
-    any order, since both require a Site.
+
+    Then create the test page.
     """
     page_content_type, created = ContentType.objects.get_or_create(
         model="page", app_label="wagtailcore"
     )
-    # Locale.objects.create(language_code="en")
+
     root_page, created = Page.objects.get_or_create(
         title="Root",
         slug="root",
@@ -31,7 +29,7 @@ def test_page(db):
         numchild=1,
         url_path="/",
     )
-    # Create homepage
+
     test_page, created = CodeBlockPage.objects.get_or_create(
         # Required Wagtail Page fields
         title="TEST Wagtail Code Block Page",
