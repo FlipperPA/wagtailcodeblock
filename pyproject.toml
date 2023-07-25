@@ -1,6 +1,9 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools>=67", "setuptools_scm>=7", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "wagtailcodeblock/_version.py"
 
 [project]
 name = "wagtailcodeblock"
@@ -12,7 +15,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 keywords = ["wagtail", "cms", "contact", "syntax", "code", "highlighting", "highlighter"]
 license = {text = "BSD-3-Clause"}
-classifiers=[
+classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
     "Intended Audience :: Developers",
@@ -23,14 +26,17 @@ classifiers=[
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Framework :: Django",
     "Framework :: Wagtail",
     "Framework :: Wagtail :: 3",
+    "Framework :: Wagtail :: 4",
+    "Framework :: Wagtail :: 5",
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
 dependencies = [
-    "wagtail>=4.2",
+    "wagtail>=5",
     'importlib-metadata; python_version<"3.8"',
 ]
 dynamic = ["version"]
