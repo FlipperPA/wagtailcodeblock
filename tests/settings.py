@@ -1,5 +1,7 @@
 from django.conf import settings
 
+WAGTAILADMIN_BASE_URL = "https://example.com"
+ALLOWED_HOSTS = ["*"]
 SECRET_KEY = "tests"
 DEBUG = True
 USE_TZ = True
@@ -45,7 +47,6 @@ MIDDLEWARE = settings.MIDDLEWARE + [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "wagtail.middleware.SiteMiddleware",
 ]
 
 ROOT_URLCONF = "tests.urls"

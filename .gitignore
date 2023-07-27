@@ -1,3 +1,10 @@
+# Ignore build, tests, and venvs
+build/*
+dist/*
+htmlcov/*
+venv/*
+wagtailcodeblock.egg-info/*
+
 # manage.py, always default to dev settings
 manage.py
 
