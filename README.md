@@ -6,13 +6,26 @@ It uses the [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the
 
 ## Example Usage
 
+First, add `wagtailcodeblock` to your `INSTALLED_APPS` in Django's settings. Here's a bare bones example:
+
 ```python
+from wagtail.blocks import TextBlock
+from wagtail.fields import StreamField
+from wagtail.models import Page
+from wagtail.admin.panels import FieldPanel
+
 from wagtailcodeblock.blocks import CodeBlock
 
-class ContentStreamBlock(StreamBlock):
-    heading = TextBlock()
-    paragraph = TextBlock()
-    code = CodeBlock(label='Code')
+
+class HomePage(Page):
+    body = StreamField([
+        ("heading", TextBlock()),
+        ("code", CodeBlock(label='Code')),
+    ])
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body"),
+    ]
 ```
 
 You can also force it to use a single language or set a default language by providing a language code which must be included in your `WAGTAIL_CODE_BLOCK_LANGUAGES` setting:
@@ -31,8 +44,11 @@ any_code = CodeBlock(label='Any code', default_language='python')
 To install Wagtail Code Block run:
 
 ```bash
-# Wagtail 3.0 and greater
+# Wagtail 4.0 and greater
 pip install wagtailcodeblock
+
+# Wagtail 3.x
+pip install wagtailcodeblock==1.28.0.0
 
 # Wagtail 2.x
 pip install wagtailcodeblock==1.25.0.2
@@ -299,6 +315,10 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('zig', 'Zig'),
 )
 ```
+
+# What's With the Versioning?
+
+Our version numbers are based on the underlying version of PrismJS we use. For example, if we are using PrismJS `1.28.0`, our versions will be named `1.28.0.X`.
 
 # Release Notes & Contributors
 
