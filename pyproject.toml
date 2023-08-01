@@ -36,7 +36,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
 dependencies = [
-    "wagtail>=5",
+    "wagtail>=4",
     'importlib-metadata; python_version<"3.8"',
 ]
 dynamic = ["version"]
