@@ -14,7 +14,9 @@ class CodeStreamBlock(StreamBlock):
 
 
 class CodeBlockPage(Page):
-    # body = StreamField(CodeStreamBlock(), blank=True, use_json_field=True)
+    """
+    Test Page with a code block in body.
+    """
     body = StreamField([
         ('code', CodeBlock()),
     ], use_json_field=True)
