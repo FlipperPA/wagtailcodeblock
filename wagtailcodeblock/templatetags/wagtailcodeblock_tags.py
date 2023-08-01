@@ -79,13 +79,6 @@ def load_prism_css():
             """prism-line-numbers.min.css" rel="stylesheet">"""
         )
 
-    if get_copy_to_clipboard():
-        toolbar = True
-        script += (
-            f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/plugins/copy-to-clipboard/"""
-            """prism-copy-to-clipboard.min.css" rel="stylesheet">"""
-        )
-
     if toolbar is True:
         script += (
             f"""<link href="{PRISM_PREFIX}{PRISM_VERSION}/plugins/toolbar/"""

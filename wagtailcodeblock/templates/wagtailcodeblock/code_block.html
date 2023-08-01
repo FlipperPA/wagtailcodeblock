@@ -13,11 +13,16 @@
                         {
                             "id": "code-block-prismjs",
                             "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{% prism_version %}/prism.min.js"
-                        },
-                        {
-                            "id": "code-block-prismjs-" + language,
-                            "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{% prism_version %}/components/prism-" + language + ".min.js"
                         }
+                        /*Since there is no html.min.js this check makes sure we
+                        bypass the loading of the script when syntax is set to HTML */
+                        {% if val != "html" %}
+                            ,
+                            {
+                                "id": "code-block-prismjs-" + language,
+                                "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{% prism_version %}/components/prism-" + language + ".min.js"
+                            }
+                        {% endif %}
                         {% line_numbers_js %}
                         {% toolbar_js %}
                         {% copy_to_clipboard_js %}
