@@ -6,8 +6,8 @@ from wagtail import hooks
 from .settings import get_theme, PRISM_VERSION, PRISM_PREFIX
 
 
-@hooks.register("insert_editor_css")
-def editor_css():
+@hooks.register("insert_global_admin_css")
+def global_admin_css():
     THEME = get_theme()
 
     if THEME:
@@ -27,8 +27,8 @@ def editor_css():
     )
 
 
-@hooks.register("insert_editor_js")
-def editor_js():
+@hooks.register("insert_global_admin_js")
+def global_admin_js():
     """Add all prism languages"""
 
     js_files = [
