@@ -7,9 +7,7 @@ write_to = "wagtailcodeblock/_version.py"
 
 [project]
 name = "wagtailcodeblock"
-authors = [
-    {name = "Tim Allen", email = "tallen@wharton.upenn.edu"},
-]
+authors = [{name = "Tim Allen", email = "tallen@wharton.upenn.edu"},]
 description = "Wagtail Code Block provides PrismJS syntax highlighting in Wagtail."
 readme = "README.md"
 requires-python = ">=3.7"
