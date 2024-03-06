@@ -6,7 +6,7 @@ It uses the [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the
 
 ## Join the Community at Wagtail Space!
 
-The Call for Proposals and Registration for Wagtail Space 2024 is open! We would love to have you join us in June.
+The Call for Participation and Registration for Wagtail Space 2024 is open! We would love to have you give a talk, or just us as an attendee in June.
 
 * [Wagtail Space NL](https://nl.wagtail.space/), Arnhem, The Netherlands. 2024-06-14
 * [Wagtail Space US](https://us.wagtail.space/), Philadelphia, PA. 2024-06-20 to 2024-06-22
