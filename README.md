@@ -4,6 +4,13 @@ Wagtail Code Block is a syntax highlighter block for source code for the Wagtail
 
 It uses the [PrismJS](http://prismjs.com/) library both in Wagtail Admin and the website.
 
+## Join the Community at Wagtail Space!
+
+The Call for Proposals and Registration for Wagtail Space 2024 is open! We would love to have you join us in June.
+
+* [Wagtail Space NL](https://nl.wagtail.space/), Arnhem, The Netherlands. 2024-06-14
+* [Wagtail Space US](https://us.wagtail.space/), Philadelphia, PA. 2024-06-20 to 2024-06-22
+
 ## Example Usage
 
 First, add `wagtailcodeblock` to your `INSTALLED_APPS` in Django's settings. Here's a bare bones example:
