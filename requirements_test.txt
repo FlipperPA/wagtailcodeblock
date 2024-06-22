@@ -1,4 +1,0 @@
-pytest-django
-pytest-coverage
-django-coverage-plugin
--e .

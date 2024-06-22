@@ -327,6 +327,10 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 
 Our version numbers are based on the underlying version of PrismJS we use. For example, if we are using PrismJS `1.28.0`, our versions will be named `1.28.0.X`.
 
+# Running the Test Suite
+
+Clone the repository, create a `venv`, `pip install -e .[dev]` and run `pytest`.
+
 # Release Notes & Contributors
 
 * Thank you to our [wonderful contributors](https://github.com/FlipperPA/wagtailcodeblock/graphs/contributors)!

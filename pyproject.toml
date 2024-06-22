@@ -9,6 +9,7 @@ write_to = "wagtailcodeblock/_version.py"
 name = "wagtailcodeblock"
 authors = [{name = "Tim Allen", email = "tallen@wharton.upenn.edu"},]
 description = "Wagtail Code Block provides PrismJS syntax highlighting in Wagtail."
+dynamic = ["version"]
 readme = "README.md"
 requires-python = ">=3.7"
 keywords = ["wagtail", "cms", "contact", "syntax", "code", "highlighting", "highlighter"]
@@ -37,6 +38,16 @@ classifiers = [
 dependencies = [
     "wagtail>=4",
 ]
+
+[project.optional-dependencies]
+dev = [
+  "django-coverage-plugin",
+  "ipython",
+  "ruff",
+  "pytest-coverage",
+  "pytest-django",
+]
+
 dynamic = ["version"]
 
 [project.urls]
