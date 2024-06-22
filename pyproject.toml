@@ -57,3 +57,6 @@ write_to = "wagtailcodeblock/_version.py"
 addopts = "--cov --cov-report=html"
 python_files = "tests.py test_*.py"
 DJANGO_SETTINGS_MODULE = "tests.settings"
+
+[tool.coverage.run]
+omit = "./scripts/*,./*/migrations/*,./*/tests/*,./*/tests.py,./*/apps.py,./config/settings/*,./manage.py,./wrds/*,./wrds_demo/*,./static_src/*,./static_dev/*,./docs/*,./templates/*"
