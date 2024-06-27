@@ -1,61 +1,7 @@
 {% load static wagtailcodeblock_tags %}
 {% spaceless %}
-    {% load_prism_css %}
-    {% for key, val in self.items %}
-        {% if key == "language" %}
-            <script>
-            /* This is ugly, but to ensure we only create this function once, and only call
-            each JS library once, we need to check here in case there are multiple Wagtail
-            blocks on this page. This will ensure we only load the minimum payload. */
-            if(typeof loadPrismLanguage != 'function') {
-                window.loadPrismLanguage = function(language) {
-                    var libraries = [
-                        {
-                            "id": "code-block-prismjs",
-                            "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{% prism_version %}/prism.min.js"
-                        }
-                        /*Since there is no html.min.js this check makes sure we
-                        bypass the loading of the script when syntax is set to HTML */
-                        {% if val != "html" %}
-                            ,
-                            {
-                                "id": "code-block-prismjs-" + language,
-                                "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{% prism_version %}/components/prism-" + language + ".min.js"
-                            }
-                        {% endif %}
-                        {% line_numbers_js %}
-                        {% toolbar_js %}
-                        {% copy_to_clipboard_js %}
-                    ];
-
-                    for(const library of libraries) {
-                        if(document.getElementById(library["id"]) == null) {
-                            var s = document.createElement("script");
-                            s.id = library["id"];
-                            s.type = "text/javascript";
-                            s.src = library["url"];
-                            s.async = false;
-                            document.body.appendChild(s);
-                        }
-                    }
-                };
-            }
-
-            loadPrismLanguage('{{ val }}');
-
-            language_class_name = 'language-{{ val }}';
-            </script>
-        {% endif %}
-        {% if key == "code" %}
-            <pre class="line-numbers">
-                <code id="target-element-current">{{ val }}</code>
-            </pre>
-            <script>
-                var block_num = (typeof block_num === 'undefined') ? 0 : block_num;
-                block_num++;
-                document.getElementById('target-element-current').className = language_class_name;
-                document.getElementById('target-element-current').id = 'target-element-' + block_num;
-            </script>
-        {% endif %}
-    {% endfor %}
+<pre class="line-numbers">
+    <code class="language-{{ self.language }}">{{ self.code }}</code>
+</pre>
 {% endspaceless %}
+
